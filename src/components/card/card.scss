@@ -1,0 +1,48 @@
+.card {
+  background: white;
+  display: grid;
+  width: 90%;
+
+  @media (min-width: $tablet) {
+    width: 500px;
+  }
+
+  &__content {
+    justify-content: center;
+    align-items: center;
+    padding: 30px 10px 5px 10px;
+    display: grid;
+    grid-template-rows: 1fr 50px;
+    grid-template-columns: 1fr;
+  }
+
+  &__image-wrapper {
+    img {
+      width: 100%;
+    }
+  }
+
+  &__meta {
+    color: grey;
+
+    svg {
+      margin-right: 5px;
+    }
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    line-height: initial;
+    margin: 0;
+  }
+
+  &__type {
+    &--Workshop {
+      color: $color--workshop;
+    }
+
+    &--Talk {
+      color: $color--talk;
+    }
+  }
+}
