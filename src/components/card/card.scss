@@ -1,25 +1,37 @@
 .card {
   background: white;
-  display: grid;
-  width: 90%;
+  display: inline-grid;
+  grid-template-columns: min-content;
+  grid-template-rows: min-content;
 
-  @media (min-width: $tablet) {
-    width: 500px;
+  &__image-wrapper {
+    display: flex;
+    img {
+      max-width: 350px;
+      max-height: 400px;
+      object-fit: contain;
+    }
+  }
+
+  @media (min-width: $mobile) {
+    grid-template-columns: min-content;
+    grid-template-rows: min-content;
+    &__image-wrapper {
+      img {
+        max-width: 450px;
+        max-height: 450px;
+      }
+    }
   }
 
   &__content {
+    display: grid;
     justify-content: center;
     align-items: center;
-    padding: 30px 10px 5px 10px;
-    display: grid;
-    grid-template-rows: 1fr 50px;
+    padding: 30px 10px 20px 10px;
+    gap: 10px;
+    grid-template-rows: 1fr;
     grid-template-columns: 1fr;
-  }
-
-  &__image-wrapper {
-    img {
-      width: 100%;
-    }
   }
 
   &__meta {
