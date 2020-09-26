@@ -1,3 +1,23 @@
 @import "./variables/colors.scss";
 @import "./variables/layout.scss";
-@import url("https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import "./variables/fonts.scss";
+@import "../layout/layout.scss";
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+span,
+p {
+  font-family: $font--primary;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  color: initial;
+}
