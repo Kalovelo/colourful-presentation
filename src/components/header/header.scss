@@ -1,10 +1,16 @@
 .header {
-  padding: 20px $paddings--mobile;
-  position: absolute;
-  width: 100%;
-  transition: all 0.5s;
-  display: flex;
-  align-items: center;
+  &__wrapper {
+    padding: 20px $paddings--mobile;
+    position: absolute;
+    width: 100%;
+    transition: all 0.5s;
+    display: flex;
+    align-items: center;
+  }
+
+  &--bar {
+    display: none;
+  }
 
   &--affixed {
     background: $color--light;
@@ -39,21 +45,31 @@
   }
 
   @media (min-width: $tablet) {
-    padding: 50px $paddings--tablet;
+    &--bar {
+      display: initial;
+    }
 
+    &--drawer {
+      display: none;
+    }
+    &__wrapper {
+      padding: 50px $paddings--tablet;
+
+      &--affixed {
+        padding: 20px $paddings--tablet;
+      }
+    }
     &__menu {
       flex-direction: row;
     }
-
-    &--affixed {
-      padding: 20px $paddings--tablet;
-    }
   }
   @media (min-width: $desktop) {
-    padding: 50px $paddings--desktop;
+    &__wrapper {
+      padding: 50px $paddings--desktop;
 
-    &--affixed {
-      padding: 20px $paddings--desktop;
+      &--affixed {
+        padding: 20px $paddings--desktop;
+      }
     }
   }
 }

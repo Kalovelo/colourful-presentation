@@ -14,6 +14,7 @@ interface cardProps {
   title: string;
   date: string;
   place: string;
+  link: string;
 }
 
 const Card: React.FC<cardProps> = (props) => {
@@ -25,10 +26,14 @@ const Card: React.FC<cardProps> = (props) => {
     <article>
       <div className="card">
         <div className="card__image-wrapper">
-          <img src={props.image} />
+          <a href={props.link}>
+            <img src={props.image} />
+          </a>
         </div>
         <div className="card__content">
-          <h3 className="card__title">{props.title}</h3>
+          <a href={props.link}>
+            <h3 className="card__title">{props.title}</h3>
+          </a>{" "}
           <div className="card__meta">
             <span className={`card__type card__type--${props.type}`}>
               {getTypeIcon()} {props.type}

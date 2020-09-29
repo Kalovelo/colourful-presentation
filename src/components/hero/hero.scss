@@ -1,0 +1,84 @@
+.hero {
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 100px $paddings--mobile;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 50px;
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin: 0;
+    color: $color--dark;
+  }
+
+  &__subtitle {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+
+  &__text {
+    font-size: 1rem;
+    height: 80%;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+  }
+  &__content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .lottie {
+    display: none;
+  }
+
+  @media (min-width: $tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 50px $paddings--tablet;
+
+    &__text {
+      text-align: left;
+      align-items: flex-start;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    .lottie {
+      display: initial;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: $desktop) {
+    &__title {
+      font-size: 2rem;
+    }
+
+    .lottie {
+      width: 70%;
+    }
+  }
+
+  @media (min-width: $desktop-large) {
+    padding: 100px $paddings--desktop;
+
+    &__title {
+      font-size: 3rem;
+    }
+
+    &__subtitle {
+      font-size: 1.5rem;
+    }
+  }
+}

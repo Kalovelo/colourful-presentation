@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { Affix, Drawer } from "antd";
 import { BarsOutlined } from "@ant-design/icons";
+import { Affix, Drawer } from "antd";
+import React, { useState } from "react";
 import "./header.scss";
-import useWindowSize from "../../utils/useWindowSize";
 
 interface link {
   title: string;
@@ -47,7 +46,7 @@ const DrawerHeader: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="header--drawer">
       <button className="header__toggle" onClick={showDrawer}>
         <BarsOutlined />
       </button>
@@ -58,20 +57,27 @@ const DrawerHeader: React.FC = () => {
   );
 };
 
+const BarHeader: React.FC = () => (
+  <div className="header--bar">
+    <MenuList />
+  </div>
+);
+
 const Header: React.FC = () => {
   const [affixed, setAffixed] = useState(false);
 
-  const mobile = useWindowSize();
-
-  const headerClass = affixed ? "header header--affixed" : "header";
+  const headerClass = affixed
+    ? "header__wrapper header__wrapper--affixed"
+    : "header__wrapper";
   return (
     <Affix
-      onChange={(isAffined) => {
-        setAffixed(!!isAffined);
+      onChange={(isAffixed) => {
+        setAffixed(!!isAffixed);
       }}
     >
       <header className={headerClass}>
-        {mobile ? <DrawerHeader /> : <MenuList />}
+        <DrawerHeader />
+        <BarHeader />
       </header>
     </Affix>
   );
