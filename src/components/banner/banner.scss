@@ -1,0 +1,54 @@
+.banner {
+  display: grid;
+  padding: 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  grid-template-areas:
+    "image"
+    "title"
+    "subtitle";
+  text-align: center;
+
+  &__icon {
+    grid-area: image;
+    margin: auto;
+    width: 200px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    grid-area: title;
+    color: $color--light;
+    font-size: 2.3rem;
+    font-family: $font--accent;
+  }
+
+  &__subtitle {
+    grid-area: subtitle;
+    color: $color--light;
+    font-size: 1.3rem;
+  }
+
+  @media (min-width: $tablet) {
+    text-align: left;
+    padding: 50px;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-areas:
+      "title image"
+      "subtitle image";
+
+    &__title {
+      font-size: 4rem;
+    }
+
+    &__subtitle {
+      font-size: 2rem;
+    }
+  }
+}
