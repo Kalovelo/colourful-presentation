@@ -1,20 +1,21 @@
 import React from "react";
 import "./banner.scss";
 interface bannerProps {
-  icon: any;
+  type: string;
+  icon: JSX.Element;
+  title: string;
   text: string;
 }
 
-const Banner: React.FC<bannerProps> = ({ icon, text }) => {
+const Banner: React.FC<bannerProps> = ({ type, icon, title, text }) => {
   return (
-    <div className="banner">
-      <div className="banner__icon">{icon}</div>
-      <h2 className="banner__title">{text}</h2>
-      <p className="banner__subtitle">
-        Introducing a technology in a hands-on session. Showcase your Laptop
-        Stickers!
-      </p>
-    </div>
+    <>
+      <div className={`banner banner--${type} banner--${title}`}>
+        <div className="banner__icon">{icon}</div>
+        <h2 className="banner__title">{title}</h2>
+        <p className="banner__subtitle">{text}</p>
+      </div>
+    </>
   );
 };
 
