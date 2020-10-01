@@ -20,7 +20,7 @@ const Hero: React.FC<heroProps> = ({ cta }: any) => {
         </p>
         <Button></Button>
       </div>
-      <div className="hero__content">{cta}</div>
+      {cta}
     </div>
   );
 };

@@ -23,32 +23,30 @@ const Card: React.FC<cardProps> = (props) => {
   };
 
   return (
-    <article>
-      <div className="card">
-        <div className="card__image-wrapper">
-          <a href={props.link}>
-            <img src={props.image} />
-          </a>
-        </div>
-        <div className="card__content">
-          <a href={props.link}>
-            <h3 className="card__title">{props.title}</h3>
-          </a>{" "}
-          <div className="card__meta">
-            <span className={`card__type card__type--${props.type}`}>
-              {getTypeIcon()} {props.type}
-              <Divider type="vertical" />
-            </span>
-            <span>
-              <EnvironmentOutlined />
-              {props.place}
-            </span>
+    <article className="card">
+      <div className="card__image-wrapper">
+        <a href={props.link}>
+          <img src={props.image} />
+        </a>
+      </div>
+      <div className="card__content">
+        <a href={props.link}>
+          <h3 className="card__title">{props.title}</h3>
+        </a>{" "}
+        <div className="card__meta">
+          <span className={`card__type card__type--${props.type}`}>
+            {getTypeIcon()} {props.type}
             <Divider type="vertical" />
-            <span>
-              <CalendarOutlined />
-              {props.date}
-            </span>
-          </div>
+          </span>
+          <span>
+            <EnvironmentOutlined />
+            {props.place}
+          </span>
+          <Divider type="vertical" />
+          <span>
+            <CalendarOutlined />
+            {props.date}
+          </span>
         </div>
       </div>
     </article>
