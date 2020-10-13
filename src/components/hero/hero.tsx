@@ -18,7 +18,7 @@ const Hero: React.FC<heroProps> = ({ cta }: any) => {
           χανόμαστε στο δάσος. Γίνε κόμβος της κοινότητας και έλα να το εξερευνήσουμε
           μαζί!
         </p>
-        <Button></Button>
+        <Button>Περισσότερα</Button>
       </div>
       {cta}
     </div>

@@ -1,15 +1,3 @@
-import React from "react"
+import IndexPage from "./index/_index";
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { DatePicker } from "antd"
-
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    hey.
-    <DatePicker />
-  </Layout>
-)
-
-export default IndexPage
+export default IndexPage;
