@@ -1,13 +1,21 @@
 import React from "react";
 import "./button.scss";
 
-const Button = () => {
+interface buttonProps {
+  link?: string;
+  action?: Function;
+  children: any;
+  extraClass?: string;
+}
+const Button: React.FC<buttonProps> = ({ link, action, children, extraClass }) => {
   return (
-    <button className="button learn-more">
+    <button onClick={() => action} className={`button--toggle learn-more`}>
       <span className="circle" aria-hidden="true">
         <span className="icon arrow"></span>
       </span>
-      <span className="button-text">Μάθε Περισσότερα</span>
+      <a href={link} className="button-text">
+        {children}
+      </a>
     </button>
   );
 };

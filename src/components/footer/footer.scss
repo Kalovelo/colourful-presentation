@@ -1,0 +1,59 @@
+.Footer {
+  display: flex;
+  flex-direction: column;
+
+  &__pit {
+    @include wrapper--paddings(20px, 40px, 50px, 50px);
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    background: $color--pale;
+    grid-template-areas: "menu" "social" "credits";
+    gap: 30px;
+    justify-content: center;
+
+    * {
+      color: $color--gray;
+    }
+  }
+
+  &__links {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    font-size: 1rem;
+    align-items: center;
+    grid-area: menu;
+    gap: 20px;
+    justify-content: center;
+
+    &--social {
+      grid-area: social;
+    }
+  }
+
+  &__credits {
+    text-align: center;
+    grid-area: credits;
+  }
+
+  @media (min-width: $tablet) {
+    &__pit {
+      flex-direction: row;
+      grid-template-areas: "menu social credits";
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    &__links {
+      &--main {
+        justify-content: flex-start;
+      }
+    }
+
+    &__credits {
+      text-align: right;
+    }
+  }
+}
