@@ -1,0 +1,129 @@
+.banner {
+  display: grid;
+  grid-template-rows: 300px max-content(50px) 150px;
+  grid-template-areas:
+    "image"
+    "title"
+    "subtitle";
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  padding: 20px;
+  margin: 0px (-$paddings--mobile);
+
+  &__icon {
+    grid-area: image;
+    margin: auto;
+    width: 100px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    grid-area: title;
+    font-size: 2.3rem;
+    font-family: $font--accent;
+  }
+
+  &__subtitle {
+    grid-area: subtitle;
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+  &--line {
+    .banner__subtitle,
+    .banner__title {
+      color: $color--light;
+    }
+    &.banner--Workshops {
+      background: $color--workshop;
+    }
+
+    &.banner--Talks {
+      background: $color--talk;
+    }
+  }
+
+  &--Workshops {
+    * {
+      color: $color--workshop;
+    }
+  }
+
+  &--Talks {
+    * {
+      color: $color--talk;
+    }
+  }
+
+  @media (min-width: $tablet) {
+    &--line {
+      grid-template-rows: initial;
+      grid-template-areas:
+        "title image"
+        "subtitle image";
+      gap: 0;
+      justify-content: space-between;
+      grid-template-areas:
+        "title image"
+        "subtitle image";
+      margin: 0px (-$paddings--tablet);
+
+      .banner__title {
+        text-align: left;
+        font-size: 5rem;
+      }
+      .banner__subtitle {
+        text-align: left;
+        font-size: 1.4rem;
+      }
+    }
+
+    &--square {
+      grid-template-rows: 200px 80px 100px;
+      background-repeat: no-repeat;
+      background-size: 90%;
+      background-position: center;
+
+      &:nth-child(1) {
+        img {
+          background-size: contain;
+          transform: scaleX(-1);
+        }
+      }
+
+      .banner__subtitle {
+        margin: auto;
+        font-size: 1.4rem;
+        max-width: 400px;
+      }
+      .banner__title {
+        font-size: 3rem;
+      }
+    }
+
+    @media (min-width: $desktop) {
+      &__icon {
+        width: 200px;
+      }
+      &--line {
+        margin: 0px (-$paddings--desktop);
+      }
+    }
+
+    @media (min-width: $desktop-large) {
+      &--line {
+        margin: 0vw (-$paddings--desktop-large);
+
+        .banner__subtitle {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+}

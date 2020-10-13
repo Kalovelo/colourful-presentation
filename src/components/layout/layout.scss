@@ -1,0 +1,15 @@
+.layout {
+  padding: 0 $paddings--mobile;
+
+  @media (min-width: $tablet) {
+    padding: 0 $paddings--tablet;
+  }
+
+  @media (min-width: $desktop) {
+    padding: 0 $paddings--desktop;
+  }
+
+  @media (min-width: $desktop-large) {
+    padding: 0 $paddings--desktop-large;
+  }
+}

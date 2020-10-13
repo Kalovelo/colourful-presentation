@@ -1,0 +1,80 @@
+.hero {
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr;
+  gap: 50px;
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin: 0;
+  }
+
+  &__subtitle {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+
+  &__text {
+    font-size: 1rem;
+    height: 80%;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+  }
+  &__content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .lottie {
+    display: none;
+  }
+
+  @media (min-width: $tablet) {
+    display: flex;
+
+    &__text {
+      text-align: left;
+      align-items: flex-start;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    .lottie {
+      display: initial;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: $desktop) {
+    gap: 200px;
+    background-size: 100vw;
+    &__title {
+      font-size: 2rem;
+    }
+
+    .lottie {
+      width: 70%;
+    }
+  }
+
+  @media (min-width: $desktop-large) {
+    &__title {
+      font-size: 2.5rem;
+    }
+
+    &__subtitle {
+      font-size: 1.5rem;
+    }
+  }
+}

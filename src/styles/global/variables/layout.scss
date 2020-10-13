@@ -2,3 +2,29 @@ $mobile: 460px;
 $tablet: 720px;
 $desktop: 1024px;
 $desktop-large: 1350px;
+
+$paddings--desktop-large: 13vw;
+$paddings--desktop: 150px;
+$paddings--tablet: 50px;
+$paddings--mobile: 30px;
+
+@mixin wrapper--paddings(
+  $mobile--vertical,
+  $tablet--vertical,
+  $desktop--vertical,
+  $desktop-large--vertical
+) {
+  padding: $mobile--vertical $paddings--mobile;
+
+  @media (min-width: $tablet) {
+    padding: $tablet--vertical $paddings--tablet;
+  }
+
+  @media (min-width: $desktop) {
+    padding: $desktop--vertical $paddings--desktop;
+  }
+
+  @media (min-width: $desktop-large) {
+    padding: $desktop-large--vertical $paddings--desktop-large;
+  }
+}
