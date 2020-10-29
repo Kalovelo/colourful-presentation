@@ -7,11 +7,12 @@ import {
 import { Divider } from "antd";
 import React from "react";
 import "./card.scss";
+import { formatDate } from "../../utils/Date";
 
 interface cardProps {
-  type: string;
+  eventType: string;
   image: string;
-  title: string;
+  name: string;
   date: string;
   place: string;
   link: string;
@@ -19,36 +20,34 @@ interface cardProps {
 
 const Card: React.FC<cardProps> = (props) => {
   const getTypeIcon = (): JSX.Element => {
-    return props.type === "Workshop" ? <LaptopOutlined /> : <AudioOutlined />;
+    return props.eventType === "WORKSHOP" ? <LaptopOutlined /> : <AudioOutlined />;
   };
 
   return (
     <article className="card">
-      <div className="card__image-wrapper">
-        <a href={props.link}>
+      <a href={props.link}>
+        <div className="card__image-wrapper">
           <img src={props.image} />
-        </a>
-      </div>
-      <div className="card__content">
-        <a href={props.link}>
-          <h3 className="card__title">{props.title}</h3>
-        </a>{" "}
-        <div className="card__meta">
-          <span className={`card__type card__type--${props.type}`}>
-            {getTypeIcon()} {props.type}
-            <Divider type="vertical" />
-          </span>
-          <span>
-            <EnvironmentOutlined />
-            {props.place}
-          </span>
-          <Divider type="vertical" />
-          <span>
-            <CalendarOutlined />
-            {props.date}
-          </span>
         </div>
-      </div>
+        <div className="card__content">
+          <h3 className="card__title">{props.name}</h3>
+          <div className="card__meta">
+            <span className={`card__type card__type--${props.eventType}`}>
+              {getTypeIcon()} {props.eventType}
+              <Divider type="vertical" />
+            </span>
+            <span>
+              <EnvironmentOutlined />
+              {props.place}
+            </span>
+            <Divider type="vertical" />
+            <span>
+              <CalendarOutlined />
+              {formatDate(props.date)}
+            </span>
+          </div>
+        </div>
+      </a>
     </article>
   );
 };

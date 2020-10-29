@@ -1,0 +1,28 @@
+.archive {
+  &__grid {
+    justify-content: center;
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    margin: 100px 0;
+  }
+
+  &__filter {
+    &-text {
+      text-align: center;
+      font-size: 3rem;
+      font-family: $font--accent;
+      text-decoration: underline;
+
+      &--workshop {
+        color: $color--workshop;
+        text-shadow: 2px 2px 13px #7dcaee;
+      }
+
+      &--talk {
+        color: $color--talk;
+        text-shadow: 2px 2px 13px #ec7373;
+      }
+    }
+  }
+}

@@ -1,15 +1,15 @@
 .layout {
-  padding: 0 $paddings--mobile;
+  padding: 100px $paddings--mobile;
 
   @media (min-width: $tablet) {
-    padding: 0 $paddings--tablet;
+    padding: 150px $paddings--tablet;
   }
 
   @media (min-width: $desktop) {
-    padding: 0 $paddings--desktop;
+    padding: 150px $paddings--desktop;
   }
 
   @media (min-width: $desktop-large) {
-    padding: 0 $paddings--desktop-large;
+    padding: 150px $paddings--desktop-large;
   }
 }

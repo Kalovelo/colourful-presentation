@@ -7,8 +7,10 @@
   box-shadow: 0px 0px 26px -15px rgba(0, 0, 0, 0.75);
   transition: all 0.5s;
   &:hover {
+    transform: translateY(-10px);
     box-shadow: 0px 0px 26px -15px rgba(0, 0, 0, 1);
   }
+
   border-radius: 30px;
   &__image-wrapper {
     display: flex;
@@ -79,11 +81,12 @@
   }
 
   &__type {
-    &--Workshop {
+    text-transform: lowercase;
+    &--WORKSHOP {
       color: $color--workshop;
     }
 
-    &--Talk {
+    &--TALK {
       color: $color--talk;
     }
   }

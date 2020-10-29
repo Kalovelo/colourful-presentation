@@ -1,14 +1,15 @@
 .hero {
-  height: 100vh;
+  height: 800px;
   display: grid;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+  align-items: flex-start;
   grid-template-columns: 1fr;
   gap: 50px;
   &__title {
     font-size: 1.5rem;
     font-weight: 900;
     margin: 0;
+    width: 600px;
   }
 
   &__subtitle {
@@ -18,7 +19,7 @@
 
   &__text {
     font-size: 1rem;
-    height: 80%;
+    height: 500px;
     display: flex;
     gap: 30px;
     flex-direction: column;

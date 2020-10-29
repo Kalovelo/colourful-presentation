@@ -3,24 +3,26 @@ import Button from "../button/button";
 import "./hero.scss";
 
 interface heroProps {
-  cta: JSX.Element;
+  element: JSX.Element;
+  cta: string;
+  headTitle: string;
+  description: string;
 }
 
-const Hero: React.FC<heroProps> = ({ cta }: any) => {
+const Hero: React.FC<heroProps> = ({
+  cta,
+  headTitle,
+  description,
+  element,
+}: any) => {
   return (
     <div className="hero">
       <div className="hero__text">
-        <h1 className="hero__title">
-          Τα frameworks πληθαίνουν. Ας τα ανακαλύψουμε μαζί.
-        </h1>
-        <p className="hero__subtitle">
-          Όσο επιταχύνεται ο ρυθμός ανάπτυξης νέων τεχνολογιών, τόσο ευκολότερα
-          χανόμαστε στο δάσος. Γίνε κόμβος της κοινότητας και έλα να το εξερευνήσουμε
-          μαζί!
-        </p>
-        <Button>Περισσότερα</Button>
+        <h1 className="hero__title">{headTitle}</h1>
+        <p className="hero__subtitle">{description}</p>
+        <Button link={cta}>Περισσότερα</Button>
       </div>
-      {cta}
+      {element}
     </div>
   );
 };

@@ -41,18 +41,19 @@ const banner2Props = {
     "Συζητάμε για εργαλεία, τεχνολογίες και δρώμενα. Επίσης ανταλλάζουμε αυτοκόλλητα.",
 };
 
-const banner3Props = {
-  type: "line",
-  icon: <img src={talkImage} />,
-  title: "Workshops",
-  text: "We're talking about tools. We also exchange swag!",
-};
 const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
       <section>
-        <Hero cta={visualAnimation} />
+        <Hero
+          element={visualAnimation}
+          cta="adasd"
+          headTitle="Τα frameworks πληθαίνουν. Ας τα ανακαλύψουμε μαζί."
+          description="Όσο επιταχύνεται ο ρυθμός ανάπτυξης νέων τεχνολογιών, τόσο ευκολότερα
+          χανόμαστε στο δάσος. Γίνε κόμβος της κοινότητας και έλα να το εξερευνήσουμε
+          μαζί!"
+        />
       </section>
       <section className="index__banners-wrapper">
         <h2 className="index__banners-title">Featuring both</h2>
