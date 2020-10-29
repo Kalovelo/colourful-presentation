@@ -16,13 +16,18 @@
 
       &--workshop {
         color: $color--workshop;
-        text-shadow: 2px 2px 13px #7dcaee;
+        text-shadow: 2px 2px 4px #7dcaee;
       }
 
       &--talk {
         color: $color--talk;
-        text-shadow: 2px 2px 13px #ec7373;
+        text-shadow: 2px 2px 4px #ec7373;
       }
+    }
+
+    &-description {
+      text-align: center;
+      font-size: 1.3rem;
     }
   }
 }

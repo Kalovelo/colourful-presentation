@@ -52,14 +52,6 @@ const Archive: React.FC<archiveProps> = ({ events, theme }) => {
     />
   );
 
-  const generateHero = (event: event) => (
-    <Hero
-      cta="lalala"
-      description={event.summary}
-      headTitle={event.name}
-      element={generateCard(event)}
-    />
-  );
   return (
     <section className="archive">
       {futureEvents.length > 0 && (
@@ -68,8 +60,13 @@ const Archive: React.FC<archiveProps> = ({ events, theme }) => {
             <h2 className={`archive__filter-text archive__filter-text--${theme}`}>
               Upcoming
             </h2>
+            <h3 className="archive__filter-description">
+              Προλαβαίνεις να ενημερώσεις το πρόγραμμα σου!
+            </h3>
           </div>
-          {futureEvents.map((event) => generateHero(event))}
+          <div className="archive__grid">
+            {futureEvents.map((event) => generateCard(event))}
+          </div>
         </>
       )}
       {pastEvents.length > 0 && (
@@ -78,6 +75,9 @@ const Archive: React.FC<archiveProps> = ({ events, theme }) => {
             <h2 className={`archive__filter-text archive__filter-text--${theme}`}>
               Past Events
             </h2>
+            <h3 className="archive__filter-description">
+              Βρες βοηθητικό υλικό από προηγούμενα event, καθώς και φωτογραφίες.
+            </h3>
           </div>
           <div className="archive__grid">
             {pastEvents.map((event, index) => generateCard(event))}
