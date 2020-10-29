@@ -2,6 +2,7 @@ import { BarsOutlined } from "@ant-design/icons";
 import { Affix, Drawer } from "antd";
 import React, { useState } from "react";
 import "./header.scss";
+import Background from "./background";
 
 interface link {
   title: string;
@@ -11,16 +12,16 @@ interface link {
 const MenuList: React.FC = () => {
   const links: link[] = [
     {
+      title: "Αρχική",
+      url: "/",
+    },
+    {
       title: "Workshops",
       url: "/workshops",
     },
     {
       title: "Talks",
       url: "/talks",
-    },
-    {
-      title: "Επικοινωνία",
-      url: "/contact",
     },
   ];
 
@@ -50,6 +51,7 @@ const DrawerHeader: React.FC = () => {
       <button className="header__toggle" onClick={showDrawer}>
         <BarsOutlined />
       </button>
+
       <Drawer placement="left" closable={true} onClose={onClose} visible={visible}>
         <MenuList />
       </Drawer>
@@ -64,22 +66,15 @@ const BarHeader: React.FC = () => (
 );
 
 const Header: React.FC = () => {
-  const [affixed, setAffixed] = useState(false);
-
-  const headerClass = affixed
-    ? "header__wrapper header__wrapper--affixed"
-    : "header__wrapper";
   return (
-    <Affix
-      onChange={(isAffixed) => {
-        setAffixed(!!isAffixed);
-      }}
-    >
-      <header className={headerClass}>
-        <DrawerHeader />
+    <header className="header">
+      <div className="header__wrapper">
         <BarHeader />
-      </header>
-    </Affix>
+      </div>
+      <span className="header__background">
+        <Background />
+      </span>
+    </header>
   );
 };
 
