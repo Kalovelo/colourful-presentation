@@ -1,69 +1,90 @@
-import { BarsOutlined } from "@ant-design/icons";
-import { Affix, Drawer } from "antd";
 import React, { useState } from "react";
 import "./header.scss";
-import Background from "./background";
 
-interface link {
-  title: string;
+import Background from "./background";
+import { Menu, Popover, Button, ChevronDownIcon } from "evergreen-ui";
+import { useStaticQuery, graphql, Link } from "gatsby";
+interface topic {
+  name: string;
   url: string;
 }
 
-const MenuList: React.FC = () => {
-  const links: link[] = [
-    {
-      title: "Αρχική",
-      url: "/",
-    },
-    {
-      title: "Workshops",
-      url: "/workshops",
-    },
-    {
-      title: "Talks",
-      url: "/talks",
-    },
-  ];
+interface submenuProps {
+  main: string;
+  subitems: topic[];
+}
+
+const Submenu: React.FC<submenuProps> = ({ main, subitems }) => {
+  const [visibility, setVisibility] = useState(false);
 
   return (
-    <ul className="header__menu">
-      {links.map((link, index) => (
-        <li key={index}>
-          <a href={link.url}>{link.title}</a>
-        </li>
-      ))}
-    </ul>
+    <Menu.Item
+      onMouseEnter={() => setVisibility(true)}
+      onMouseLeave={() => setVisibility(false)}
+    >
+      <div className="menu__wrapper">
+        <Link className="menu__main-link" to={`/${main.toLowerCase()}`}>
+          {main}
+        </Link>
+
+        {subitems.length > 0 && (
+          <Popover
+            minWidth={"150px"}
+            isShown={visibility}
+            content={
+              <div className="submenu">
+                <Menu>
+                  <Menu.Group>
+                    {subitems.map((topic: topic) => (
+                      <Menu.Item to={topic.url} is={Link}>
+                        {topic.name}
+                      </Menu.Item>
+                    ))}
+                  </Menu.Group>
+                </Menu>
+              </div>
+            }
+          >
+            <Button marginX={0}>
+              <ChevronDownIcon />
+            </Button>
+          </Popover>
+        )}
+      </div>
+    </Menu.Item>
   );
 };
 
-const DrawerHeader: React.FC = () => {
-  const [visible, setVisible] = useState(false);
-
-  const showDrawer = () => {
-    setVisible(true);
-  };
-  const onClose = () => {
-    setVisible(false);
-  };
+const BarHeader: React.FC = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      api {
+        talkTopics: topics(eventType: "TALK") {
+          name
+          url
+        }
+        workshopTopics: topics(eventType: "WORKSHOP") {
+          name
+          url
+        }
+      }
+    }
+  `);
 
   return (
-    <div className="header--drawer">
-      <button className="header__toggle" onClick={showDrawer}>
-        <BarsOutlined />
-      </button>
-
-      <Drawer placement="left" closable={true} onClose={onClose} visible={visible}>
-        <MenuList />
-      </Drawer>
+    <div className="header--bar">
+      <Menu>
+        <Menu.Item>
+          <Link to="/" className="menu__main-link">
+            Αρχική
+          </Link>
+        </Menu.Item>
+        <Submenu main={"Workshops"} subitems={data.api.workshopTopics} />
+        <Submenu main={"Talks"} subitems={data.api.talkTopics} />
+      </Menu>
     </div>
   );
 };
-
-const BarHeader: React.FC = () => (
-  <div className="header--bar">
-    <MenuList />
-  </div>
-);
 
 const Header: React.FC = () => {
   return (

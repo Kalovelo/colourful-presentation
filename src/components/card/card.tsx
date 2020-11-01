@@ -4,7 +4,6 @@ import {
   CalendarOutlined,
   AudioOutlined,
 } from "@ant-design/icons";
-import { Divider } from "antd";
 import React from "react";
 import "./card.scss";
 import { formatDate } from "../../utils/Date";
@@ -34,13 +33,11 @@ const Card: React.FC<cardProps> = (props) => {
           <div className="card__meta">
             <span className={`card__type card__type--${props.eventType}`}>
               {getTypeIcon()} {props.eventType}
-              <Divider type="vertical" />
             </span>
             <span>
               <EnvironmentOutlined />
               {props.place}
             </span>
-            <Divider type="vertical" />
             <span>
               <CalendarOutlined />
               {formatDate(props.date)}

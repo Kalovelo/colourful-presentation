@@ -1,8 +1,5 @@
-import { StaticQuery, graphql } from "gatsby";
 import React, { useEffect, useState } from "react";
-import { formatDate } from "../../utils/Date";
 import Card from "../card/card";
-import Hero from "../hero/hero";
 import "./archive.scss";
 
 interface event {

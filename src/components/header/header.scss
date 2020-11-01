@@ -2,51 +2,12 @@
   display: flex;
   flex-direction: column;
 
-  &--bar {
-    width: 100%;
-  }
-
   &__wrapper {
     background: $color--accent;
-    padding: 20px $paddings--mobile;
-    width: 100%;
+    padding: 20px 20px;
     transition: all 0.5s;
     display: flex;
-    align-items: center;
     flex-direction: column;
-  }
-
-  &__menu {
-    padding: 0;
-    font-weight: 300;
-    font-size: 1rem;
-    margin: 0;
-    list-style-type: none;
-    display: flex;
-    // flex-direction: column;
-    gap: 30px;
-    width: 100%;
-    justify-content: space-between;
-    > li {
-      a {
-        color: $color--light;
-        font-weight: 500;
-      }
-      transition: all 0.5s;
-
-      &:hover {
-        opacity: 0.5;
-      }
-    }
-  }
-
-  //deprecated
-  &__toggle {
-    color: $color--dark;
-    background: none;
-    border: none;
-    font-size: 30px;
-    cursor: pointer;
   }
 
   &__background {
@@ -57,13 +18,18 @@
     }
   }
 
+  .menu__wrapper {
+    display: flex;
+  }
+
+  .menu__main-link {
+    color: $color--light;
+    font-size: 1.3rem;
+  }
+
   @media (min-width: $tablet) {
     &--drawer {
       display: none;
-    }
-
-    &--bar {
-      width: initial;
     }
 
     &__wrapper {
@@ -78,11 +44,59 @@
     &__wrapper {
       padding: 25px $paddings--desktop;
     }
+
+    &--bar {
+      nav {
+        gap: 20%;
+      }
+    }
   }
 
   @media (min-width: $desktop-large) {
     &__wrapper {
       padding: 25px $paddings--desktop-large;
     }
+  }
+}
+
+// Fugly
+
+.submenu {
+  padding: 5px;
+
+  a * {
+    font-weight: 500;
+    font-size: 1.3rem;
+
+    &:hover {
+      color: white;
+    }
+  }
+  [data-isselectable="true"] {
+    transition: all 0.2s;
+  }
+  [data-isselectable="true"]:hover {
+    color: white;
+    background: $color--orange !important;
+    border-radius: 15px !important;
+  }
+}
+
+.header--bar {
+  nav {
+    display: flex;
+    gap: 30px;
+
+    span {
+      margin: 0;
+    }
+  }
+
+  button {
+    background: none !important;
+    color: $color--light;
+    font-size: 1.2rem;
+    line-height: 2rem !important;
+    height: 100% !important;
   }
 }
