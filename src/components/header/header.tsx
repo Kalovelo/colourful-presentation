@@ -27,7 +27,7 @@ const Submenu: React.FC<submenuProps> = ({ main, subitems }) => {
           {main}
         </Link>
 
-        {subitems.length > 0 && (
+        {subitems?.length > 0 && (
           <Popover
             minWidth={"150px"}
             isShown={visibility}
@@ -35,8 +35,8 @@ const Submenu: React.FC<submenuProps> = ({ main, subitems }) => {
               <div className="submenu">
                 <Menu>
                   <Menu.Group>
-                    {subitems.map((topic: topic) => (
-                      <Menu.Item to={topic.url} is={Link}>
+                    {subitems.map((topic: topic, index: number) => (
+                      <Menu.Item key={index} to={topic.url} is={Link}>
                         {topic.name}
                       </Menu.Item>
                     ))}
