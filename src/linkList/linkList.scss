@@ -1,0 +1,75 @@
+.linkList {
+  display: flex;
+  flex-direction: column;
+  border-collapse: collapse;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  width: 320px;
+
+  tr {
+    width: 290px;
+    padding: 0 15px;
+    display: inline-block;
+    transition: all 0.5s;
+  }
+
+  thead tr {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    padding: 10px 15px;
+    display: flex;
+    text-align: center;
+    justify-self: center;
+    color: $color--light;
+    background-color: $color--teal;
+  }
+
+  &__title {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__divider {
+    height: 2px;
+    width: 100%;
+    background: $color--gray;
+    border: 0;
+  }
+
+  tbody {
+    width: 100%;
+  }
+
+  tbody tr:nth-of-type(even) {
+    background-color: $color--pale;
+  }
+
+  tbody tr:last-of-type {
+    border-bottom: 2px solid $color--teal;
+  }
+
+  tbody tr:hover {
+    background-color: $color--pale-gray;
+  }
+
+  &__list {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 0;
+    color: initial;
+  }
+
+  &__link-title {
+    width: 200px;
+  }
+}
