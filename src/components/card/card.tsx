@@ -7,15 +7,7 @@ import {
 import React from "react";
 import "./card.scss";
 import { formatDate } from "../../utils/Date";
-
-interface cardProps {
-  eventType: string;
-  image: string;
-  name: string;
-  date: string;
-  place: string;
-  link: string;
-}
+import { cardProps } from "./interface";
 
 const Card: React.FC<cardProps> = (props) => {
   const getTypeIcon = (): JSX.Element => {

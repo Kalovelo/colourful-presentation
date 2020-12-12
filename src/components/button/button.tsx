@@ -1,12 +1,7 @@
 import React from "react";
 import "./button.scss";
+import { buttonProps } from "./interface";
 
-interface buttonProps {
-  link?: string;
-  action?: Function;
-  children: any;
-  extraClass?: string;
-}
 const Button: React.FC<buttonProps> = ({ link, action, children, extraClass }) => {
   return (
     <button onClick={() => action} className={`button--toggle learn-more`}>

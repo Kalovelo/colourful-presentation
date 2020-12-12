@@ -1,14 +1,7 @@
 import React from "react";
 import "./linkList.scss";
 import { LinkOutlined } from "@ant-design/icons";
-export interface link {
-  title: string;
-  url: string;
-}
-export interface linkListProps {
-  title: string;
-  links: [link];
-}
+import { linkListProps } from "./interface";
 
 const LinkList: React.FC<linkListProps> = ({ title, links }: linkListProps) => {
   return (

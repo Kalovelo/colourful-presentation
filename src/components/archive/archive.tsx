@@ -1,20 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "../card/card";
 import "./archive.scss";
-
-interface event {
-  eventType: string;
-  poster: string;
-  date: string;
-  name: string;
-  summary: string;
-  place: string;
-}
-
-interface archiveProps {
-  theme: string;
-  events: [event];
-}
+import { event, archiveProps } from "./interface";
 
 const Archive: React.FC<archiveProps> = ({ events, theme }) => {
   const [pastEvents, setPastEvents] = useState<event[]>([]);

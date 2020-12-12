@@ -5,21 +5,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
 import "./cheatsheet.scss";
-import { theme } from "../../enums/theme";
-
-interface cheatsheetChapterField {
-  command: string;
-  explanation: string;
-}
-export interface cheatsheetChapter {
-  title: string;
-  fields: Array<cheatsheetChapterField>;
-}
-
-export interface cheatsheetProps {
-  theme: theme;
-  chapters: Array<cheatsheetChapter>;
-}
+import { cheatsheetProps } from "./interface";
 
 const Cheatsheet: React.FC<cheatsheetProps> = ({
   theme,

@@ -1,11 +1,6 @@
 import React from "react";
 import "./banner.scss";
-interface bannerProps {
-  type: string;
-  icon: JSX.Element;
-  title: string;
-  text: string;
-}
+import { bannerProps } from "./interface";
 
 const Banner: React.FC<bannerProps> = ({ type, icon, title, text }) => {
   return (

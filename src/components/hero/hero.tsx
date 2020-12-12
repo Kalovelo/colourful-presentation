@@ -1,13 +1,7 @@
 import React from "react";
 import Button from "../button/button";
 import "./hero.scss";
-
-interface heroProps {
-  element: JSX.Element;
-  cta: string;
-  headTitle: string;
-  description: string;
-}
+import { heroProps } from "./interface";
 
 const Hero: React.FC<heroProps> = ({
   cta,

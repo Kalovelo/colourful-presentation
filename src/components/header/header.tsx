@@ -4,15 +4,7 @@ import "./header.scss";
 import Background from "./background";
 import { Menu, Popover, Button, ChevronDownIcon } from "evergreen-ui";
 import { useStaticQuery, graphql, Link } from "gatsby";
-interface topic {
-  name: string;
-  url: string;
-}
-
-interface submenuProps {
-  main: string;
-  subitems: topic[];
-}
+import { submenuProps, topic } from "./interface";
 
 const Submenu: React.FC<submenuProps> = ({ main, subitems }) => {
   const [visibility, setVisibility] = useState(false);

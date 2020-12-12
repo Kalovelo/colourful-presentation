@@ -5,19 +5,12 @@ import {
   InstagramOutlined,
   LinkedinOutlined,
 } from "@ant-design/icons";
-import React, { useState } from "react";
+import React from "react";
 import "./footer.scss";
 import Newsletter from "../newsletter/newsletter";
 
 const Footer: React.FC = () => {
-  const [LoadingOutlined, setshouldPlayAnimation] = useState(false);
-
-  const Links: [
-    {
-      title: string;
-      url: string;
-    }
-  ] = [
+  const Links: Array<links> = [
     {
       title: "About",
       url: "/About",
@@ -32,9 +25,9 @@ const Footer: React.FC = () => {
     },
   ];
 
-  const social = [
+  const social: Array<social> = [
     {
-      link: "https://www.facebook.com/differentreality",
+      url: "https://www.facebook.com/differentreality",
       icon: FacebookOutlined,
     },
     {
@@ -50,18 +43,13 @@ const Footer: React.FC = () => {
       icon: GitlabOutlined,
     },
     {
-      ur: "https://github.com/differentreality",
+      url: "https://github.com/differentreality",
       icon: GithubOutlined,
     },
   ];
 
   return (
-    <footer
-      onClick={() => {
-        setshouldPlayAnimation(true);
-      }}
-      className="Footer"
-    >
+    <footer className="Footer">
       <Newsletter />
       <div className="Footer__pit">
         <ul className="Footer__links Footer__links--main">
