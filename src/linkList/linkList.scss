@@ -5,6 +5,8 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   width: 320px;
 
+  border-radius: 13px;
+
   tr {
     width: 290px;
     padding: 0 15px;
@@ -13,8 +15,8 @@
   }
 
   thead tr {
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
     padding: 10px 15px;
     display: flex;
     text-align: center;
@@ -41,10 +43,6 @@
 
   tbody tr:nth-of-type(even) {
     background-color: $color--pale;
-  }
-
-  tbody tr:last-of-type {
-    border-bottom: 2px solid $color--teal;
   }
 
   tbody tr:hover {
