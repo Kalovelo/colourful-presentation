@@ -14,10 +14,12 @@ const LinkList: React.FC<linkListProps> = ({ title, links }: linkListProps) => {
       <tbody>
         {links.map((link, index) => (
           <tr key={index}>
-            <a href={link.url} className="linkList__link" target="_blank">
-              <span className="linkList__link-title">{link.title}</span>
-              <LinkOutlined />
-            </a>
+            <th>
+              <a href={link.url} className="linkList__link" target="_blank">
+                <span className="linkList__link-title">{link.title}</span>
+                <LinkOutlined />
+              </a>
+            </th>
           </tr>
         ))}
       </tbody>

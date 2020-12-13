@@ -3,7 +3,7 @@ export interface topic {
   url: string;
 }
 
-export interface submenuProps {
+export interface ISubmenuProps {
   main: string;
   subitems: Array<topic>;
 }
