@@ -5,12 +5,12 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
 import "./cheatsheet.scss";
-import { cheatsheetProps } from "./interface";
+import { ICheatsheetProps } from "./interface";
 
-const Cheatsheet: React.FC<cheatsheetProps> = ({
+const Cheatsheet: React.FC<ICheatsheetProps> = ({
   theme,
   chapters,
-}: cheatsheetProps) => {
+}: ICheatsheetProps) => {
   return (
     <div className="cheatsheet">
       <h3 className="cheatsheet__title">Cheatsheet</h3>

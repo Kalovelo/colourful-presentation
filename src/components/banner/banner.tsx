@@ -1,8 +1,8 @@
 import React from "react";
 import "./banner.scss";
-import { bannerProps } from "./interface";
+import { ΙΒannerProps } from "./interface";
 
-const Banner: React.FC<bannerProps> = ({ type, icon, title, text }) => {
+const Banner: React.FC<ΙΒannerProps> = ({ type, icon, title, text }) => {
   return (
     <>
       <div className={`banner banner--${type} banner--${title}`}>

@@ -1,15 +1,15 @@
 import { theme } from "../../enums/theme";
 
-export interface cheatsheetProps {
+export interface ICheatsheetProps {
   theme: theme;
-  chapters: Array<cheatsheetChapter>;
+  chapters: Array<ICheatsheetChapter>;
 }
 
-export interface cheatsheetChapterField {
+export interface ICheatsheetChapterField {
   command: string;
   explanation: string;
 }
-export interface cheatsheetChapter {
+export interface ICheatsheetChapter {
   title: string;
-  fields: Array<cheatsheetChapterField>;
+  fields: Array<ICheatsheetChapterField>;
 }

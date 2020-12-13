@@ -7,9 +7,9 @@ import {
 import React from "react";
 import "./card.scss";
 import { formatDate } from "../../utils/Date";
-import { cardProps } from "./interface";
+import { ICardProps } from "./interface";
 
-const Card: React.FC<cardProps> = (props) => {
+const Card: React.FC<ICardProps> = (props) => {
   const getTypeIcon = (): JSX.Element => {
     return props.eventType === "WORKSHOP" ? <LaptopOutlined /> : <AudioOutlined />;
   };

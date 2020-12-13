@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Card from "../card/card";
 import "./archive.scss";
-import { event, archiveProps } from "./interface";
+import { IEvent, IArchiveProps } from "./interface";
 
-const Archive: React.FC<archiveProps> = ({ events, theme }) => {
-  const [pastEvents, setPastEvents] = useState<event[]>([]);
-  const [futureEvents, setFutureEvents] = useState<event[]>([]);
+const Archive: React.FC<IArchiveProps> = ({ events, theme }) => {
+  const [pastEvents, setPastEvents] = useState<IEvent[]>([]);
+  const [futureEvents, setFutureEvents] = useState<IEvent[]>([]);
 
   const filterEvents = () => {
-    const pastEvents: event[] = [];
-    const futureEvents: event[] = [];
+    const pastEvents: IEvent[] = [];
+    const futureEvents: IEvent[] = [];
     events.map((event) => {
       new Date(parseInt(event.date)).getTime() > new Date().getTime()
         ? futureEvents.push(event)
@@ -25,7 +25,7 @@ const Archive: React.FC<archiveProps> = ({ events, theme }) => {
     setFutureEvents(events.futureEvents);
   }, []);
 
-  const generateCard = (event: event) => (
+  const generateCard = (event: IEvent) => (
     <Card
       eventType={event.eventType}
       image="https://events.stellarouzi.com/static/media/gsoc_2019_poster.ff524d89.png"

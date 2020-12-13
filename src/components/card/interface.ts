@@ -1,4 +1,4 @@
-export interface cardProps {
+export interface ICardProps {
   eventType: string;
   image: string;
   name: string;

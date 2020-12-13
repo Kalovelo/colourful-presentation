@@ -1,4 +1,4 @@
-export interface event {
+export interface IEvent {
   eventType: string;
   poster: string;
   date: string;
@@ -7,7 +7,7 @@ export interface event {
   place: string;
 }
 
-export interface archiveProps {
+export interface IArchiveProps {
   theme: string;
-  events: Array<event>;
+  events: Array<IEvent>;
 }

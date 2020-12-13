@@ -1,4 +1,4 @@
-export interface buttonProps {
+export interface ΙΒuttonProps {
   link?: string;
   action?: Function;
   children: any;

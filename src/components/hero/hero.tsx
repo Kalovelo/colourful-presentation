@@ -1,9 +1,9 @@
 import React from "react";
 import Button from "../button/button";
 import "./hero.scss";
-import { heroProps } from "./interface";
+import { IHeroProps } from "./interface";
 
-const Hero: React.FC<heroProps> = ({
+const Hero: React.FC<IHeroProps> = ({
   cta,
   headTitle,
   description,

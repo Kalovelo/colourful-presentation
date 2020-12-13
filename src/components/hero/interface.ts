@@ -1,4 +1,4 @@
-export interface heroProps {
+export interface IHeroProps {
   element: JSX.Element;
   cta: string;
   headTitle: string;

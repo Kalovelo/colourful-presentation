@@ -1,9 +1,9 @@
-interface links {
+interface ILinks {
   title: string;
   url: string;
 }
 
-interface social {
+interface ISocial {
   url: string;
   icon: any;
 }

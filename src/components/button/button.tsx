@@ -1,8 +1,8 @@
 import React from "react";
 import "./button.scss";
-import { buttonProps } from "./interface";
+import { ΙΒuttonProps } from "./interface";
 
-const Button: React.FC<buttonProps> = ({ link, action, children, extraClass }) => {
+const Button: React.FC<ΙΒuttonProps> = ({ link, action, children, extraClass }) => {
   return (
     <button onClick={() => action} className={`button--toggle learn-more`}>
       <span className="circle" aria-hidden="true">

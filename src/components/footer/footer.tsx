@@ -10,7 +10,7 @@ import "./footer.scss";
 import Newsletter from "../newsletter/newsletter";
 
 const Footer: React.FC = () => {
-  const Links: Array<links> = [
+  const Links: Array<ILinks> = [
     {
       title: "About",
       url: "/About",
@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
     },
   ];
 
-  const social: Array<social> = [
+  const social: Array<ISocial> = [
     {
       url: "https://www.facebook.com/differentreality",
       icon: FacebookOutlined,
