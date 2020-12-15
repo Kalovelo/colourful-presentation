@@ -1,7 +1,7 @@
-import React from "react";
-import "./linkList.scss";
 import { LinkOutlined } from "@ant-design/icons";
+import React from "react";
 import { linkListProps } from "./interface";
+import "./linkList.scss";
 
 const LinkList: React.FC<linkListProps> = ({ title, links }: linkListProps) => {
   return (
@@ -14,12 +14,12 @@ const LinkList: React.FC<linkListProps> = ({ title, links }: linkListProps) => {
       <tbody>
         {links.map((link, index) => (
           <tr key={index}>
-            <th>
+            <td>
               <a href={link.url} className="linkList__link" target="_blank">
                 <span className="linkList__link-title">{link.title}</span>
                 <LinkOutlined />
               </a>
-            </th>
+            </td>
           </tr>
         ))}
       </tbody>

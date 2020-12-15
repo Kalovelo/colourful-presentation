@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   background: linear-gradient(90deg, $color--accent, $color--talk);
+  font-family: $font--primary;
 
   &__wrapper {
     padding: 20px 20px;
@@ -19,20 +20,25 @@
     }
   }
 
-  .menu__wrapper {
-    display: flex;
-  }
-
   .menu__main-link {
     color: $color--light;
     font-size: 1.3rem;
   }
 
-  @media (min-width: $tablet) {
-    &--drawer {
-      display: none;
-    }
+  .menu__wrapper {
+    display: flex;
+    align-items: center;
+  }
 
+  .menu__icon {
+    color: $color--light;
+  }
+
+  .menu__icon:hover {
+    background: none;
+  }
+
+  @media (min-width: $tablet) {
     &__wrapper {
       padding: 25px $paddings--tablet;
       align-items: flex-start;
@@ -41,15 +47,10 @@
       flex-direction: row;
     }
   }
+
   @media (min-width: $desktop) {
     &__wrapper {
       padding: 25px $paddings--desktop;
-    }
-
-    &--bar {
-      nav {
-        gap: 20%;
-      }
     }
   }
 
@@ -60,44 +61,12 @@
   }
 }
 
-// Fugly
-
 .submenu {
   padding: 5px;
-
-  a * {
-    font-weight: 500;
-    font-size: 1.3rem;
-
-    &:hover {
-      color: white;
-    }
+  a {
+    color: $color--dark;
   }
-  [data-isselectable="true"] {
-    transition: all 0.2s;
-  }
-  [data-isselectable="true"]:hover {
-    color: white;
-    background: $color--teal !important;
-    border-radius: 15px !important;
-  }
-}
-
-.header--bar {
-  nav {
-    display: flex;
-    gap: 30px;
-
-    span {
-      margin: 0;
-    }
-  }
-
-  button {
-    background: none !important;
-    color: $color--light;
-    font-size: 1.2rem;
-    line-height: 2rem !important;
-    height: 100% !important;
+  &__item {
+    min-width: 100px;
   }
 }

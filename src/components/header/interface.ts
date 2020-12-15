@@ -3,7 +3,12 @@ export interface topic {
   url: string;
 }
 
-export interface ISubmenuProps {
+export interface IMenuProps {
   main: string;
   subitems: Array<topic>;
+}
+
+export interface ITopic {
+  url: string;
+  name: string;
 }

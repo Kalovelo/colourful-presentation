@@ -1,0 +1,39 @@
+.modalHeader {
+  &__toggle {
+    color: $color--light;
+    cursor: pointer;
+  }
+
+  &__list {
+    width: 90vw;
+  }
+
+  &__modal {
+    padding: 15px;
+  }
+
+  &__list-item {
+    color: $color--light !important;
+    font-weight: 800;
+    a {
+      color: $color--light !important;
+    }
+
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between !important;
+
+    &--sub {
+      font-weight: 400;
+    }
+  }
+
+  &__list-toggle {
+    padding: 0 15px;
+    cursor: pointer;
+  }
+
+  @media (min-width: $desktop) {
+    display: none;
+  }
+}

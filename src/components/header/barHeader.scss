@@ -1,0 +1,19 @@
+.barHeader {
+  display: none;
+
+  nav {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin: 0;
+    }
+  }
+
+  @media (min-width: $desktop) {
+    display: initial;
+    nav {
+      gap: 20%;
+    }
+  }
+}

@@ -10,22 +10,15 @@ import PropTypes from "prop-types";
 import "./layout.scss";
 import Header from "../header/header";
 import Footer from "../footer/footer";
-import { defaultTheme, ThemeProvider } from "evergreen-ui";
 
-const newTheme = {
-  ...defaultTheme,
-  spinnerColor: "hotpink",
-};
 const Layout = ({ children }: { children: JSX.Element[] }) => {
   return (
     <>
-      <ThemeProvider value={newTheme}>
-        <Header />
-        <div className="layout">
-          <main>{children}</main>
-        </div>
-        <Footer />
-      </ThemeProvider>
+      <Header />
+      <div className="layout">
+        <main>{children}</main>
+      </div>
+      <Footer />
     </>
   );
 };

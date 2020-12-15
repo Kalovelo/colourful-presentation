@@ -3,15 +3,22 @@
   flex-direction: column;
   border-collapse: collapse;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  width: 320px;
 
   border-radius: 13px;
 
   tr {
-    width: 290px;
     padding: 0 15px;
-    display: inline-block;
+    display: block;
     transition: all 0.5s;
+  }
+
+  td {
+    display: block;
+  }
+
+  th {
+    width: 100%;
+    display: block;
   }
 
   thead tr {
@@ -69,5 +76,15 @@
 
   &__link-title {
     width: 200px;
+  }
+
+  @media (min-width: $mobile) {
+    width: 320px;
+    tr {
+      width: 290px;
+    }
+    th {
+      width: 290px;
+    }
   }
 }
