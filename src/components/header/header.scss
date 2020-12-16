@@ -20,24 +20,6 @@
     }
   }
 
-  .menu__main-link {
-    color: $color--light;
-    font-size: 1.3rem;
-  }
-
-  .menu__wrapper {
-    display: flex;
-    align-items: center;
-  }
-
-  .menu__icon {
-    color: $color--light;
-  }
-
-  .menu__icon:hover {
-    background: none;
-  }
-
   @media (min-width: $tablet) {
     &__wrapper {
       padding: 25px $paddings--tablet;
@@ -58,15 +40,5 @@
     &__wrapper {
       padding: 25px $paddings--desktop-large;
     }
-  }
-}
-
-.submenu {
-  padding: 5px;
-  a {
-    color: $color--dark;
-  }
-  &__item {
-    min-width: 100px;
   }
 }

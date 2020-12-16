@@ -10,6 +10,38 @@
     }
   }
 
+  &__toggle-menu-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__main-link {
+    color: $color--light;
+    font-size: 1.3rem;
+  }
+
+  &__icon {
+    color: $color--light !important ;
+  }
+
+  &__icon:hover {
+    background: none;
+  }
+
+  &__submenu {
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 26px -15px rgba(0, 0, 0, 0.75);
+    background: $color--light;
+    a {
+      color: $color--dark;
+    }
+  }
+
+  &__submenu-item {
+    min-width: 100px;
+  }
+
   @media (min-width: $desktop) {
     display: initial;
     nav {

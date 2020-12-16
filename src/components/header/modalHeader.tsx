@@ -8,8 +8,8 @@ import { IMenuProps, ITopic } from "./interface";
 import "./modalHeader.scss";
 import CloseIcon from "@material-ui/icons/Close";
 
-const ModalMenu: React.FC<IMenuProps> = ({ main, listItems }: any) => {
-  const [openCollapse, setOpenCollapse] = React.useState(false);
+const ModalMenu: React.FC<IMenuProps> = ({ main, subitems }: any) => {
+  const [openCollapse, setOpenCollapse] = React.useState<boolean>(false);
 
   const handleClick = () => {
     setOpenCollapse(!openCollapse);
@@ -19,7 +19,7 @@ const ModalMenu: React.FC<IMenuProps> = ({ main, listItems }: any) => {
     <div className="modalHeader__list-toggle-wrapper">
       <ListItem className="modalHeader__list-item">
         <Link to={`/${main.toLowerCase()}`}>{main}</Link>
-        {listItems?.length > 0 ? (
+        {subitems?.length > 0 ? (
           openCollapse ? (
             <ExpandLess className="modalHeader__list-toggle" onClick={handleClick} />
           ) : (
@@ -30,8 +30,8 @@ const ModalMenu: React.FC<IMenuProps> = ({ main, listItems }: any) => {
         )}
       </ListItem>
       <Collapse in={openCollapse} timeout="auto" unmountOnExit>
-        {listItems?.length > 0 &&
-          listItems.map((topic: ITopic, index: number) => (
+        {subitems?.length > 0 &&
+          subitems.map((topic: ITopic, index: number) => (
             <ListItem
               className="modalHeader__list-item modalHeader__list-item--sub"
               key={index}
@@ -79,8 +79,8 @@ const ModalHeader: React.FC = ({ data }: any) => {
             <ListItem className="modalHeader__list-item">
               <Link to="/">Αρχική</Link>
             </ListItem>
-            <ModalMenu main={"Workshops"} listItems={data.api.workshopTopics} />
-            <ModalMenu main={"Talks"} listItems={data.api.talkTopics} />
+            <ModalMenu main={"Workshops"} subitems={data.api.workshopTopics} />
+            <ModalMenu main={"Talks"} subitems={data.api.talkTopics} />
           </List>
         </Fade>
       </Modal>

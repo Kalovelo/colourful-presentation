@@ -1,52 +1,78 @@
+import { Fade, MenuList, Popper } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import MenuItem from "@material-ui/core/MenuItem";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import { Link } from "gatsby";
-import {
-  anchorRef,
-  bindHover,
-  bindMenu,
-  bindToggle,
-  usePopupState,
-} from "material-ui-popup-state/hooks";
-import Menu from "material-ui-popup-state/HoverMenu";
 import React from "react";
 import "./barHeader.scss";
 import "./header.scss";
-import { IMenuProps, ITopic } from "./interface";
+import { IBarSubMenuProps, ITopic } from "./interface";
 
-const BarSubmenu: React.FC<IMenuProps> = ({ main, subitems }: any) => {
-  const popupState = usePopupState({ variant: "popover", popupId: "demoMenu" });
+const BarSubmenu: React.FC<IBarSubMenuProps> = ({
+  main,
+  subitems,
+  popperId,
+}: IBarSubMenuProps) => {
+  const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+
+  const handleHover = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleLeave = () => {
+    setAnchorEl(null);
+  };
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const open = Boolean(anchorEl);
+  const popId = open ? popperId : undefined;
+  const shouldShowPopper = subitems?.length > 0;
 
   return (
-    <div {...bindHover(popupState)} className="menu__wrapper">
-      <span ref={anchorRef(popupState)}>
-        <Link className="menu__main-link" to={`/${main.toLowerCase()}`}>
-          {main}
-        </Link>
-      </span>
-      <IconButton {...bindToggle(popupState)} className="menu__icon">
-        <KeyboardArrowDownIcon />
-      </IconButton>
-      <Menu
-        className="submenu"
-        {...bindMenu(popupState)}
-        getContentAnchorEl={null}
-        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-        transformOrigin={{ vertical: "top", horizontal: "left" }}
+    <div
+      onMouseOver={handleHover}
+      onMouseLeave={handleLeave}
+      className="barHeader__toggle-menu-wrapper"
+    >
+      <Link
+        aria-describedby={popId}
+        className="barHeader__main-link"
+        to={`/${main.toLowerCase()}`}
       >
-        {subitems?.length > 0 &&
-          subitems.map((topic: ITopic, index: number) => (
-            <MenuItem key={index}>
-              <Link to={topic.url}>{topic.name}</Link>
-            </MenuItem>
-          ))}
-        <MenuItem>
-          <Link className="submenu__item" to="lalalla">
-            llaal
-          </Link>
-        </MenuItem>
-      </Menu>
+        {main}
+      </Link>
+      {shouldShowPopper ? (
+        <>
+          <IconButton
+            onClick={handleClick}
+            className="barHeader__icon"
+            id="menu-list-grow"
+          >
+            {" "}
+            <KeyboardArrowDownIcon />
+          </IconButton>
+          <Popper id={popId} open={open} anchorEl={anchorEl} transition>
+            {({ TransitionProps }) => (
+              <Fade {...TransitionProps} timeout={350}>
+                <MenuList className="barHeader__submenu">
+                  {subitems.map((topic: ITopic, index: number) => (
+                    <MenuItem key={index}>
+                      <Link className="barHeader__submenu-item" to={topic.url}>
+                        {topic.name}
+                      </Link>
+                    </MenuItem>
+                  ))}
+                </MenuList>
+              </Fade>
+            )}
+          </Popper>
+        </>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
@@ -55,11 +81,19 @@ const BarHeader: React.FC = ({ data }: any) => {
   return (
     <div className="barHeader">
       <nav>
-        <Link to="/" className="menu__main-link">
+        <Link to="/" className="barHeader__main-link">
           Αρχική
         </Link>
-        <BarSubmenu main={"Workshops"} subitems={data.api.workshopTopics} />
-        <BarSubmenu main={"Talks"} subitems={data.api.talkTopics} />
+        <BarSubmenu
+          popperId="popper-worshops"
+          main={"Workshops"}
+          subitems={data.api.workshopTopics}
+        />
+        <BarSubmenu
+          popperId="popper-talks"
+          main={"Talks"}
+          subitems={data.api.talkTopics}
+        />
       </nav>
     </div>
   );

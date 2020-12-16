@@ -1,11 +1,10 @@
-export interface topic {
-  name: string;
-  url: string;
-}
-
 export interface IMenuProps {
   main: string;
-  subitems: Array<topic>;
+  subitems: Array<ITopic>;
+}
+
+export interface IBarSubMenuProps extends IMenuProps {
+  popperId: string;
 }
 
 export interface ITopic {
