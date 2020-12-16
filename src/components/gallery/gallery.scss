@@ -1,7 +1,7 @@
 .gallery {
   /* Prevent vertical gaps */
   line-height: 0;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   display: grid;
   grid-auto-flow: dense;

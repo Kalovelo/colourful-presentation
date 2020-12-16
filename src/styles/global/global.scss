@@ -30,3 +30,6 @@ button {
   border: none;
   outline: none;
 }
+* {
+  scrollbar-gutter: stable !important;
+}

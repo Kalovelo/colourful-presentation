@@ -6,24 +6,35 @@
 
   &__list {
     width: 90vw;
+    margin: 40vw 0 !important;
   }
 
   &__modal {
     padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__backdrop {
+    background-color: rgba(255, 255, 255, 1) !important;
+    position: relative;
   }
 
   &__list-item {
-    color: $color--light !important;
+    color: $color--dark;
     font-weight: 800;
     a {
-      color: $color--light !important;
+      color: $color--dark;
     }
+    margin: 10px 0;
 
     width: 100% !important;
     display: flex;
     justify-content: space-between !important;
 
     &--sub {
+      margin: 0px 0;
       font-weight: 400;
     }
   }
@@ -31,6 +42,14 @@
   &__list-toggle {
     padding: 0 15px;
     cursor: pointer;
+  }
+
+  &__toggle-close {
+    left: 0;
+    top: 0;
+    position: fixed;
+    margin-left: 20px;
+    margin-top: 20px;
   }
 
   @media (min-width: $desktop) {

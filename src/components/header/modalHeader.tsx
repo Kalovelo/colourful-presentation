@@ -1,4 +1,4 @@
-import { Backdrop, Collapse, List, ListItem, Modal } from "@material-ui/core";
+import { Backdrop, Collapse, Fade, List, ListItem, Modal } from "@material-ui/core";
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "gatsby";
@@ -6,6 +6,7 @@ import React from "react";
 import "./header.scss";
 import { IMenuProps, ITopic } from "./interface";
 import "./modalHeader.scss";
+import CloseIcon from "@material-ui/icons/Close";
 
 const ModalMenu: React.FC<IMenuProps> = ({ main, listItems }: any) => {
   const [openCollapse, setOpenCollapse] = React.useState(false);
@@ -63,18 +64,25 @@ const ModalHeader: React.FC = ({ data }: any) => {
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
+          className: "modalHeader__backdrop",
           timeout: 500,
         }}
       >
-        <List className="modalHeader__list">
-          <ListItem>
-            <Link to="/" className="modalHeader__list-item">
-              Αρχική
-            </Link>
-          </ListItem>
-          <ModalMenu main={"Workshops"} listItems={data.api.workshopTopics} />
-          <ModalMenu main={"Talks"} listItems={data.api.talkTopics} />
-        </List>
+        <Fade in={state}>
+          <List className="modalHeader__list">
+            <button
+              className="modalHeader__toggle-close"
+              onClick={() => toggleDrawer(false)}
+            >
+              <CloseIcon />
+            </button>
+            <ListItem className="modalHeader__list-item">
+              <Link to="/">Αρχική</Link>
+            </ListItem>
+            <ModalMenu main={"Workshops"} listItems={data.api.workshopTopics} />
+            <ModalMenu main={"Talks"} listItems={data.api.talkTopics} />
+          </List>
+        </Fade>
       </Modal>
     </nav>
   );
