@@ -6,7 +6,7 @@ import { Link } from "gatsby";
 import React from "react";
 import "./barHeader.scss";
 import "./header.scss";
-import { IBarSubMenuProps, ITopic } from "./interface";
+import { IBarSubMenuProps, ITopic, IType } from "./interface";
 
 const BarSubmenu: React.FC<IBarSubMenuProps> = ({
   main,
@@ -51,7 +51,6 @@ const BarSubmenu: React.FC<IBarSubMenuProps> = ({
             className="barHeader__icon"
             id="menu-list-grow"
           >
-            {" "}
             <KeyboardArrowDownIcon />
           </IconButton>
           <Popper id={popId} open={open} anchorEl={anchorEl} transition>
@@ -60,8 +59,11 @@ const BarSubmenu: React.FC<IBarSubMenuProps> = ({
                 <MenuList className="barHeader__submenu">
                   {subitems.map((topic: ITopic, index: number) => (
                     <MenuItem key={index}>
-                      <Link className="barHeader__submenu-item" to={topic.url}>
-                        {topic.name}
+                      <Link
+                        className="barHeader__submenu-item"
+                        to={`/${main}/${topic.slug}`}
+                      >
+                        {topic.title}
                       </Link>
                     </MenuItem>
                   ))}
@@ -77,23 +79,22 @@ const BarSubmenu: React.FC<IBarSubMenuProps> = ({
   );
 };
 
-const BarHeader: React.FC = ({ data }: any) => {
+const BarHeader: React.FC<any> = ({ data }: any) => {
   return (
     <div className="barHeader">
       <nav>
         <Link to="/" className="barHeader__main-link">
           Αρχική
         </Link>
-        <BarSubmenu
-          popperId="popper-worshops"
-          main={"Workshops"}
-          subitems={data.api.workshopTopics}
-        />
-        <BarSubmenu
-          popperId="popper-talks"
-          main={"Talks"}
-          subitems={data.api.talkTopics}
-        />
+        {data.api.types.map((type: IType) => {
+          return (
+            <BarSubmenu
+              popperId="popper-worshops"
+              main={type.slug}
+              subitems={type.topics}
+            />
+          );
+        })}
       </nav>
     </div>
   );

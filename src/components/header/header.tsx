@@ -6,16 +6,16 @@ import "./header.scss";
 import ModalHeader from "./modalHeader";
 
 const Header: React.FC = () => {
-  const data = useStaticQuery(graphql`
+  const data: any = useStaticQuery(graphql`
     query {
       api {
-        talkTopics: topics(eventType: "TALK") {
-          name
-          url
-        }
-        workshopTopics: topics(eventType: "WORKSHOP") {
-          name
-          url
+        types {
+          title: plural_name
+          slug
+          topics {
+            slug
+            title
+          }
         }
       }
     }

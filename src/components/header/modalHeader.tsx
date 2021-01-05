@@ -4,7 +4,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "gatsby";
 import React from "react";
 import "./header.scss";
-import { IMenuProps, ITopic } from "./interface";
+import { IMenuProps, ITopic, IType } from "./interface";
 import "./modalHeader.scss";
 import CloseIcon from "@material-ui/icons/Close";
 
@@ -36,7 +36,7 @@ const ModalMenu: React.FC<IMenuProps> = ({ main, subitems }: any) => {
               className="modalHeader__list-item modalHeader__list-item--sub"
               key={index}
             >
-              <Link to={`/${main.toLowerCase()}`}>{topic.name}</Link>
+              <Link to={`/${main}/${topic.slug}`}>{topic.title}</Link>
             </ListItem>
           ))}
       </Collapse>
@@ -44,7 +44,7 @@ const ModalMenu: React.FC<IMenuProps> = ({ main, subitems }: any) => {
   );
 };
 
-const ModalHeader: React.FC = ({ data }: any) => {
+const ModalHeader: React.FC<any> = ({ data }: any) => {
   const [state, setState] = React.useState(false);
   const toggleDrawer = (open: boolean) => {
     setState(open);
@@ -79,8 +79,9 @@ const ModalHeader: React.FC = ({ data }: any) => {
             <ListItem className="modalHeader__list-item">
               <Link to="/">Αρχική</Link>
             </ListItem>
-            <ModalMenu main={"Workshops"} subitems={data.api.workshopTopics} />
-            <ModalMenu main={"Talks"} subitems={data.api.talkTopics} />
+            {data.api.types.map((type: IType) => {
+              return <ModalMenu main={type.slug} subitems={type.topics} />;
+            })}
           </List>
         </Fade>
       </Modal>

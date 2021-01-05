@@ -9,5 +9,12 @@ export interface IBarSubMenuProps extends IMenuProps {
 
 export interface ITopic {
   url: string;
-  name: string;
+  slug: string;
+  title: string;
+}
+
+export interface IType {
+  title: string;
+  slug: string;
+  topics: ITopic[];
 }
