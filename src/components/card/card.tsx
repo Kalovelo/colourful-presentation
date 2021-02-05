@@ -11,14 +11,14 @@ import { ICardProps } from "./interface";
 
 const Card: React.FC<ICardProps> = (props) => {
   const getTypeIcon = (): JSX.Element => {
-    return props.eventType === "WORKSHOP" ? <LaptopOutlined /> : <AudioOutlined />;
+    return props.eventType === "workshop" ? <LaptopOutlined /> : <AudioOutlined />;
   };
 
   return (
     <article className="card">
       <a href={props.link}>
         <div className="card__image-wrapper">
-          <img src={props.image} />
+          <img src={"http://localhost:1337" + props.image} />
         </div>
         <div className="card__content">
           <h3 className="card__title">{props.name}</h3>

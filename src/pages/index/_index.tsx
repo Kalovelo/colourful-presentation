@@ -17,10 +17,11 @@ const cardProps = {
   type: "Talk",
   image:
     "https://events.stellarouzi.com/static/media/git-zero-hero-poster.7eea4e56.png",
-  title: "Code Management with Git: from Zero to Hero!",
+  name: "Code Management with Git: from Zero to Hero!",
   date: "10 Μαΐου",
   place: "Θεσσαλονίκη",
   link: "http://localhost:8000/",
+  eventType: "workshop",
 };
 
 const card = <Card {...cardProps} />;

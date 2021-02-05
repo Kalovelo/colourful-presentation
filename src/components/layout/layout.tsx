@@ -10,8 +10,13 @@ import PropTypes from "prop-types";
 import "./layout.scss";
 import Header from "../header/header";
 import Footer from "../footer/footer";
+import { ILayoutProps } from "./interface";
 
-const Layout = ({ children }: { children: JSX.Element[] }) => {
+const Layout: React.FC<ILayoutProps> = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   return (
     <>
       <Header />
@@ -21,10 +26,6 @@ const Layout = ({ children }: { children: JSX.Element[] }) => {
       <Footer />
     </>
   );
-};
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default Layout;

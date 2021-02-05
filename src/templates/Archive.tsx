@@ -4,23 +4,26 @@ import Archive from "../components/archive/archive";
 import Layout from "../components/layout/layout";
 
 export default ({ data }: any) => {
+  console.log(data);
   return (
     <Layout>
-      <Archive theme="talk" events={data.api.events} />
+      <Archive theme={data.api.events[0].type.title} events={data.api.events} />
     </Layout>
   );
 };
-
 export const query = graphql`
-  query {
+  query TypeQuery($events: [ID!]) {
     api {
-      events(eventType: "TALK") {
-        eventType
-        poster
-        summary
-        name
+      events(where: { id_in: $events }) {
+        type {
+          title
+        }
         date
+        title
         place
+        poster {
+          url
+        }
       }
     }
   }

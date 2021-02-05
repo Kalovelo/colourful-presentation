@@ -1,5 +1,5 @@
 export const formatDate = (date: string) => {
-  const parsedDate = new Date(parseInt(date));
+  const parsedDate = new Date(date);
   let formattedDate =
     parsedDate.getDate() +
     "/" +

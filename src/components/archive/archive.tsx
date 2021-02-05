@@ -10,8 +10,8 @@ const Archive: React.FC<IArchiveProps> = ({ events, theme }) => {
   const filterEvents = () => {
     const pastEvents: IEvent[] = [];
     const futureEvents: IEvent[] = [];
-    events.map((event) => {
-      new Date(parseInt(event.date)).getTime() > new Date().getTime()
+    events.forEach((event) => {
+      new Date(event.date).getTime() > new Date().getTime()
         ? futureEvents.push(event)
         : pastEvents.push(event);
     });
@@ -27,12 +27,12 @@ const Archive: React.FC<IArchiveProps> = ({ events, theme }) => {
 
   const generateCard = (event: IEvent) => (
     <Card
-      eventType={event.eventType}
-      image="https://events.stellarouzi.com/static/media/gsoc_2019_poster.ff524d89.png"
-      name={event.name}
+      eventType={event.type.title}
+      image={event.poster.url}
+      name={event.title}
       date={event.date}
-      place="Thessaloniki"
-      link="https://events.stellarouzi.com/static/media/gsoc_2019_poster.ff524d89.png"
+      place={event.place}
+      link={event.slug}
     />
   );
 
