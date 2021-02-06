@@ -1,7 +1,8 @@
 export interface IImage {
-  src: string;
-  title: string;
-  altText: string;
+  blob: {
+    url: string;
+  };
+  alternativeText: string;
 }
 
 export interface IGalleryProps {

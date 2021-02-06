@@ -3,11 +3,10 @@ import React from "react";
 import Archive from "../components/archive/archive";
 import Layout from "../components/layout/layout";
 
-export default ({ data }: any) => {
-  console.log(data);
+export default ({ data, pageContext }: any) => {
   return (
     <Layout>
-      <Archive theme={data.api.events[0].type.title} events={data.api.events} />
+      <Archive theme={pageContext.type} events={data.api.events} />
     </Layout>
   );
 };

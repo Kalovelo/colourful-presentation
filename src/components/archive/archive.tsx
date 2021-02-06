@@ -25,8 +25,9 @@ const Archive: React.FC<IArchiveProps> = ({ events, theme }) => {
     setFutureEvents(events.futureEvents);
   }, []);
 
-  const generateCard = (event: IEvent) => (
+  const generateCard = (event: IEvent, index: number) => (
     <Card
+      key={index}
       eventType={event.type.title}
       image={event.poster.url}
       name={event.title}
@@ -49,7 +50,7 @@ const Archive: React.FC<IArchiveProps> = ({ events, theme }) => {
             </h3>
           </div>
           <div className="archive__grid">
-            {futureEvents.map((event) => generateCard(event))}
+            {futureEvents.map((event, index) => generateCard(event, index))}
           </div>
         </>
       )}
@@ -64,7 +65,7 @@ const Archive: React.FC<IArchiveProps> = ({ events, theme }) => {
             </h3>
           </div>
           <div className="archive__grid">
-            {pastEvents.map((event, index) => generateCard(event))}
+            {pastEvents.map((event, index) => generateCard(event, index))}
           </div>
         </>
       )}

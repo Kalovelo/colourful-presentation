@@ -47,7 +47,7 @@ const BarSubmenu: React.FC<IBarSubMenuProps> = ({
       {shouldShowPopper ? (
         <>
           <IconButton
-            onClick={handleClick}
+            // onClick={handleClick}
             className="barHeader__icon"
             id="menu-list-grow"
           >
@@ -58,14 +58,13 @@ const BarSubmenu: React.FC<IBarSubMenuProps> = ({
               <Fade {...TransitionProps} timeout={350}>
                 <MenuList className="barHeader__submenu">
                   {subitems.map((topic: ITopic, index: number) => (
-                    <MenuItem key={index}>
-                      <Link
-                        className="barHeader__submenu-item"
-                        to={`/${main}/${topic.slug}`}
-                      >
-                        {topic.title}
-                      </Link>
-                    </MenuItem>
+                    <Link
+                      key={index}
+                      className="barHeader__submenu-item"
+                      to={`/${main}/${topic.slug}`}
+                    >
+                      <MenuItem>{topic.title}</MenuItem>
+                    </Link>
                   ))}
                 </MenuList>
               </Fade>
@@ -86,12 +85,13 @@ const BarHeader: React.FC<any> = ({ data }: any) => {
         <Link to="/" className="barHeader__main-link">
           Αρχική
         </Link>
-        {data.api.types.map((type: IType) => {
+        {Object.keys(data).map((type: string, index: number) => {
           return (
             <BarSubmenu
+              key={index}
               popperId="popper-worshops"
-              main={type.slug}
-              subitems={type.topics}
+              main={data[type].slug}
+              subitems={data[type].topics}
             />
           );
         })}

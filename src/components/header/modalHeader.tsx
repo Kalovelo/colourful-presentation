@@ -17,7 +17,7 @@ const ModalMenu: React.FC<IMenuProps> = ({ main, subitems }: any) => {
 
   return (
     <div className="modalHeader__list-toggle-wrapper">
-      <ListItem className="modalHeader__list-item">
+      <ListItem className="modalHeader__list-item modalHeader__list-item--capitalize">
         <Link to={`/${main.toLowerCase()}`}>{main}</Link>
         {subitems?.length > 0 ? (
           openCollapse ? (
@@ -79,8 +79,14 @@ const ModalHeader: React.FC<any> = ({ data }: any) => {
             <ListItem className="modalHeader__list-item">
               <Link to="/">Αρχική</Link>
             </ListItem>
-            {data.api.types.map((type: IType) => {
-              return <ModalMenu main={type.slug} subitems={type.topics} />;
+            {Object.keys(data).map((type: string, index: number) => {
+              return (
+                <ModalMenu
+                  key={index}
+                  main={data[type].slug}
+                  subitems={data[type].topics}
+                />
+              );
             })}
           </List>
         </Fade>

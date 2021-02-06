@@ -6,6 +6,7 @@ exports.createPages = async ({ graphql, actions }) => {
         types {
           slug
           id
+          title
           events {
             id
           }
@@ -16,9 +17,59 @@ exports.createPages = async ({ graphql, actions }) => {
           types {
             slug
             id
+            title
           }
           events {
             id
+          }
+        }
+        events {
+          id
+          title
+          date
+          slug
+          type {
+            title
+            slug
+          }
+          topic {
+            slug
+          }
+          place
+          summary
+          facebook_event
+          description
+          poster {
+            url
+          }
+          gallery {
+            images: image {
+              blob {
+                url
+              }
+              alternativeText: alternative_text
+            }
+          }
+          linkBundles: links {
+            title
+            link {
+              title
+              url
+            }
+          }
+          codesnippets: code_snippets {
+            title
+            snippet
+          }
+          cheatsheet {
+            title
+            chapters: cheatsheet_chapter {
+              title
+              fields: cheatsheet_chapter_field {
+                command
+                explanation
+              }
+            }
           }
         }
       }
@@ -31,8 +82,20 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create blog articles pages.
   const types = result.data.api.types;
   const topics = result.data.api.topics;
+  const events = result.data.api.events;
 
   const Archive = require.resolve("./src/templates/Archive.tsx");
+  const Event = require.resolve("./src/templates/Event.tsx");
+
+  events.forEach((event, index) => {
+    createPage({
+      path: `/${event.type.slug}/${event.topic.slug}/${event.slug}`,
+      component: Event,
+      context: {
+        event: event,
+      },
+    });
+  });
 
   types.forEach((type, index) => {
     let eventIds = [];
@@ -42,38 +105,38 @@ exports.createPages = async ({ graphql, actions }) => {
       component: Archive,
       context: {
         events: eventIds,
+        type: type.title,
       },
     });
   });
 
   await Promise.all(
-    topics.map(async (topic, index) => {
+    topics.map(async (topic) => {
       await Promise.all(
         topic.types.map(async (type) => {
           let eventIds = [];
           const typeResult = await graphql(`
           query {
             api {
-              types(where:{id:${type.id}}){
-                topics(where:{id:${topic.id}}){
-                  events{
-                    id
-                  }
-                }
+                events(where:{
+                  topic:{id:${topic.id}}
+                  type:{id:${type.id}}
+                }){
+                  id
               }
             }
           }
         `);
 
-          typeResult.data.api.types[0].topics[0].events.forEach((event) =>
-            eventIds.push(event.id)
-          );
+          typeResult.data.api.events.forEach((event) => eventIds.push(event.id));
 
+          if (!eventIds.length) eventIds = null;
           await createPage({
             path: `/${type.slug}/${topic.slug}`,
             component: Archive,
             context: {
               events: eventIds,
+              type: type.title,
             },
           });
         })

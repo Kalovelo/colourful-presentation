@@ -18,3 +18,19 @@ export interface IType {
   slug: string;
   topics: ITopic[];
 }
+
+export interface IEvent {
+  type: {
+    title: string;
+    slug: string;
+  };
+  topic: {
+    title: string;
+    slug: string;
+  };
+}
+export interface IGraphqlHeaderSchema {
+  api: {
+    events: [IEvent];
+  };
+}

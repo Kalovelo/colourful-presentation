@@ -24,6 +24,7 @@
   &__list-item {
     color: $color--dark;
     font-weight: 800;
+    text-transform: capitalize;
     a {
       color: $color--dark;
     }

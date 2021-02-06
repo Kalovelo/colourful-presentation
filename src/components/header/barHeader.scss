@@ -16,6 +16,7 @@
   }
 
   &__main-link {
+    text-transform: capitalize;
     color: $color--light;
     font-size: 1.3rem;
   }
@@ -29,17 +30,16 @@
   }
 
   &__submenu {
+    text-transform: capitalize;
     padding: 5px;
     border-radius: 10px;
     box-shadow: 0px 0px 26px -15px rgba(0, 0, 0, 0.75);
     background: $color--light;
+    min-width: 30px;
+    min-width: 100px !important;
     a {
       color: $color--dark;
     }
-  }
-
-  &__submenu-item {
-    min-width: 100px;
   }
 
   @media (min-width: $desktop) {

@@ -11,7 +11,8 @@
     &-text {
       text-align: center;
       font-size: 3rem;
-      font-family: $font--accent;
+      font-weight: 100;
+      // font-family: $font--accent;
       text-decoration: underline;
 
       &--workshop {

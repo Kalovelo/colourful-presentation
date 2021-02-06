@@ -8,6 +8,7 @@ import Fade from "@material-ui/core/Fade";
 import { IGalleryProps, IImage } from "./interface";
 
 const Gallery: React.FC<IGalleryProps> = ({ images }: IGalleryProps) => {
+  console.log(process.env.API_URL);
   const [open, setOpen] = React.useState(false);
 
   const getLargeImagesIndeces = () => {
@@ -37,8 +38,8 @@ const Gallery: React.FC<IGalleryProps> = ({ images }: IGalleryProps) => {
             onClick={handleOpen}
             className={largeTileIndeces.includes(index) ? "gallery__large" : ""}
             key={index}
-            src={image.src}
-            alt={image.altText}
+            src={process.env.API_URL + image.blob.url}
+            alt={image.alternativeText}
           />
           <Modal
             aria-labelledby="transition-modal-title"
@@ -53,7 +54,10 @@ const Gallery: React.FC<IGalleryProps> = ({ images }: IGalleryProps) => {
             }}
           >
             <Fade in={open}>
-              <img src={image.src} alt={image.altText} />
+              <img
+                src={process.env.API_URL + image.blob.url}
+                alt={image.alternativeText}
+              />
             </Fade>
           </Modal>
         </>
