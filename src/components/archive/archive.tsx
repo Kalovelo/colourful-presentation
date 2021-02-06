@@ -3,7 +3,7 @@ import Card from "../card/card";
 import "./archive.scss";
 import { IEvent, IArchiveProps } from "./interface";
 
-const Archive: React.FC<IArchiveProps> = ({ events, theme }) => {
+const Archive: React.FC<IArchiveProps> = ({ events, theme, location }) => {
   const [pastEvents, setPastEvents] = useState<IEvent[]>([]);
   const [futureEvents, setFutureEvents] = useState<IEvent[]>([]);
 
@@ -25,7 +25,7 @@ const Archive: React.FC<IArchiveProps> = ({ events, theme }) => {
     setFutureEvents(events.futureEvents);
   }, []);
 
-  const generateCard = (event: IEvent, index: number) => (
+  const generateCard = (event: IEvent, index: number, location: string) => (
     <Card
       key={index}
       eventType={event.type.title}
@@ -33,7 +33,7 @@ const Archive: React.FC<IArchiveProps> = ({ events, theme }) => {
       name={event.title}
       date={event.date}
       place={event.place}
-      link={event.slug}
+      link={`${location}/${event.type.slug}/${event.topic.slug}/${event.slug}/`}
     />
   );
 
@@ -50,7 +50,9 @@ const Archive: React.FC<IArchiveProps> = ({ events, theme }) => {
             </h3>
           </div>
           <div className="archive__grid">
-            {futureEvents.map((event, index) => generateCard(event, index))}
+            {futureEvents.map((event, index) =>
+              generateCard(event, index, location)
+            )}
           </div>
         </>
       )}
@@ -65,7 +67,7 @@ const Archive: React.FC<IArchiveProps> = ({ events, theme }) => {
             </h3>
           </div>
           <div className="archive__grid">
-            {pastEvents.map((event, index) => generateCard(event, index))}
+            {pastEvents.map((event, index) => generateCard(event, index, location))}
           </div>
         </>
       )}

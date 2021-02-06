@@ -8,6 +8,7 @@ import React from "react";
 import "./card.scss";
 import { formatDate } from "../../utils/Date";
 import { ICardProps } from "./interface";
+import { Link } from "gatsby";
 
 const Card: React.FC<ICardProps> = (props) => {
   const getTypeIcon = (): JSX.Element => {
@@ -16,7 +17,7 @@ const Card: React.FC<ICardProps> = (props) => {
 
   return (
     <article className="card">
-      <a href={props.link}>
+      <Link to={props.link}>
         <div className="card__image-wrapper">
           <img src={"http://localhost:1337" + props.image} />
         </div>
@@ -36,7 +37,7 @@ const Card: React.FC<ICardProps> = (props) => {
             </span>
           </div>
         </div>
-      </a>
+      </Link>
     </article>
   );
 };

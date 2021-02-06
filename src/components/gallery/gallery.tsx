@@ -8,7 +8,6 @@ import Fade from "@material-ui/core/Fade";
 import { IGalleryProps, IImage } from "./interface";
 
 const Gallery: React.FC<IGalleryProps> = ({ images }: IGalleryProps) => {
-  console.log(process.env.API_URL);
   const [open, setOpen] = React.useState(false);
 
   const getLargeImagesIndeces = () => {
