@@ -31,36 +31,39 @@ const Gallery: React.FC<IGalleryProps> = ({ images }: IGalleryProps) => {
 
   return (
     <section className="gallery">
-      {images.map((image: IImage, index: number) => (
-        <>
-          <img
-            onClick={handleOpen}
-            className={largeTileIndeces.includes(index) ? "gallery__large" : ""}
-            key={index}
-            src={process.env.API_URL + image.blob.url}
-            alt={image.alternativeText}
-          />
-          <Modal
-            aria-labelledby="transition-modal-title"
-            className="gallery__modal"
-            aria-describedby="transition-modal-description"
-            open={open}
-            onClose={handleClose}
-            closeAfterTransition
-            BackdropComponent={Backdrop}
-            BackdropProps={{
-              timeout: 500,
-            }}
-          >
-            <Fade in={open}>
-              <img
-                src={process.env.API_URL + image.blob.url}
-                alt={image.alternativeText}
-              />
-            </Fade>
-          </Modal>
-        </>
-      ))}
+      <h2 className="gallery__title">Στιγμές</h2>
+      <div className="gallery__wrapper">
+        {images.map((image: IImage, index: number) => (
+          <>
+            <img
+              onClick={handleOpen}
+              className={largeTileIndeces.includes(index) ? "gallery__large" : ""}
+              key={index}
+              src={process.env.API_URL + image.blob.url}
+              alt={image.alternativeText}
+            />
+            <Modal
+              aria-labelledby="transition-modal-title"
+              className="gallery__modal"
+              aria-describedby="transition-modal-description"
+              open={open}
+              onClose={handleClose}
+              closeAfterTransition
+              BackdropComponent={Backdrop}
+              BackdropProps={{
+                timeout: 500,
+              }}
+            >
+              <Fade in={open}>
+                <img
+                  src={process.env.API_URL + image.blob.url}
+                  alt={image.alternativeText}
+                />
+              </Fade>
+            </Modal>
+          </>
+        ))}
+      </div>
     </section>
   );
 };

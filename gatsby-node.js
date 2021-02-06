@@ -60,6 +60,7 @@ exports.createPages = async ({ graphql, actions }) => {
           codesnippets: code_snippets {
             title
             snippet
+            language
           }
           cheatsheet {
             title

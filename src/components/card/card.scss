@@ -78,15 +78,16 @@
     line-height: initial;
     margin: 0;
     font-weight: 500;
+    color: $color--dark;
   }
 
   &__type {
     text-transform: lowercase;
-    &--WORKSHOP {
+    &--workshop {
       color: $color--workshop;
     }
 
-    &--TALK {
+    &--talk {
       color: $color--talk;
     }
   }

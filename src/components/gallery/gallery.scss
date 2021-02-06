@@ -1,11 +1,17 @@
 .gallery {
   /* Prevent vertical gaps */
-  line-height: 0;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  display: grid;
-  grid-auto-flow: dense;
 
+  &__wrapper {
+    line-height: 0;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    display: grid;
+    grid-auto-flow: dense;
+  }
+
+  &__title {
+    text-align: center;
+  }
   img {
     width: 100%;
     height: auto;

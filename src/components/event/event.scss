@@ -1,0 +1,26 @@
+.event {
+  section {
+    margin: 100px ($paddings--mobile);
+  }
+
+  h2 {
+    margin: 80px 0 50px 0;
+  }
+  &__linkList-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 80px;
+  }
+
+  &__codeSnippet-code {
+    border-radius: 20px;
+    padding: 50px;
+  }
+
+  @media (min-width: $desktop-large) {
+    &__codeSnippet {
+      width: 1000px;
+    }
+  }
+}

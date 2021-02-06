@@ -39,5 +39,26 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-remark-prismjs`,
+      options: {
+        showLineNumbers: true,
+        noInlineHighlight: false,
+        languageExtensions: [
+          {
+            language: "superscript",
+            extend: "javascript",
+            definition: {
+              superscript_types: /(SuperType)/,
+            },
+            insertBefore: {
+              function: {
+                superscript_keywords: /(superif|superelse)/,
+              },
+            },
+          },
+        ],
+      },
+    },
   ],
 };
