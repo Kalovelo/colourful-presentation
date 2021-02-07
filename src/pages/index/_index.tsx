@@ -49,7 +49,6 @@ const IndexPage = () => {
       <section>
         <Hero
           element={visualAnimation}
-          cta="adasd"
           headTitle="Ο οδηγός σου στα προγραμματιστικά σου ταξίδια."
           description="Νέες τεχνολογίες, νέα δρόμενα. Γίνε κόμβος της κοινότητας και έλα να το εξερευνήσουμε
           μαζί!"

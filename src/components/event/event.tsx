@@ -7,11 +7,60 @@ import { link } from "../linkList/interface";
 import LinkList from "../linkList/linkList";
 import "./event.scss";
 import Prism from "prismjs";
+import { formatDate } from "../../utils/Date";
+import { LinkOutlined } from "@ant-design/icons";
+
+const eventDetails = (
+  date: string,
+  place: string,
+  poster: string,
+  facebookEvent: string
+) => {
+  const data = [];
+  if (date) data.push({ headTitle: "Πότε;", content: formatDate(date) });
+  if (place) data.push({ headTitle: "Που;", content: place });
+  if (facebookEvent)
+    data.push({
+      headTitle: "Συμμετοχή",
+      content: (
+        <a
+          className="event__details-table-link"
+          href={facebookEvent}
+          target="_blank"
+        >
+          <span>Facebook</span>
+          <LinkOutlined />
+        </a>
+      ),
+    });
+  return (
+    <div className="event__details-wrapper">
+      <img
+        className="event__details-poster"
+        src={process.env.API_URL + poster}
+      ></img>
+      <table className="event__details-table">
+        <thead>
+          <tr>
+            {data.map((item) => (
+              <th>{item.headTitle}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {data.map((item) => (
+              <td>{item.content}</td>
+            ))}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
 const Event = (props: any) => {
-  console.log(props);
   useEffect(() => {
-    // call the highlightAll() function to style our code blocks
     Prism.highlightAll();
   });
 
@@ -28,15 +77,34 @@ const Event = (props: any) => {
 
   return (
     <div className="event">
-      <Hero headTitle="lala" description="lala" cta={"lalaa"} element={Card}></Hero>
+      <section className="event__hero">
+        <Hero
+          headTitle={props.title}
+          description={props.description}
+          element={eventDetails(
+            props.date,
+            props.place,
+            props.poster.url,
+            props.facebookEvent
+          )}
+        ></Hero>
+      </section>
       {props.cheatsheet && (
-        <Cheatsheet theme={props.type.title} chapters={props.cheatsheet.chapters} />
+        <section>
+          <Cheatsheet
+            theme={props.type.title}
+            chapters={props.cheatsheet.chapters}
+          />
+        </section>
       )}
       {props.linkBundles && (
-        <section className="event__linkList-wrapper">
-          {props.linkBundles.map((linkList: { title: string; link: link[] }) => (
-            <LinkList title={linkList.title} links={linkList.link} />
-          ))}
+        <section>
+          <h2>Εξωτερικό βοηθητικό υλικό</h2>
+          <div className="event__linkList-wrapper">
+            {props.linkBundles.map((linkList: { title: string; link: link[] }) => (
+              <LinkList title={linkList.title} links={linkList.link} />
+            ))}
+          </div>
         </section>
       )}
       {props.codesnippets.length > 0 && (
