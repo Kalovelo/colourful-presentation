@@ -5,4 +5,5 @@ export interface ICardProps {
   date: string;
   place: string;
   link: string;
+  summary: string;
 }

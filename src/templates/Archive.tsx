@@ -32,6 +32,7 @@ export const query = graphql`
           slug
         }
         slug
+        summary
         date
         title
         place

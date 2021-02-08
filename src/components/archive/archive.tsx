@@ -30,7 +30,8 @@ const Archive: React.FC<IArchiveProps> = ({ events, theme, location }) => {
       key={index}
       eventType={event.type.title}
       image={event.poster.url}
-      name={event.title}
+      title={event.title}
+      summary={event.summary}
       date={event.date}
       place={event.place}
       link={`/${event.type.slug}/${event.topic.slug}/${event.slug}/`}

@@ -23,34 +23,6 @@
     }
   }
 
-  @media (min-width: $mobile) {
-    grid-template-columns: min-content;
-    grid-template-rows: min-content;
-    &__image-wrapper {
-      img {
-        max-width: 300px;
-        max-height: 350px;
-      }
-    }
-  }
-
-  @media (min-width: $desktop) {
-    &__title {
-      font-size: 1.6rem;
-    }
-  }
-
-  @media (min-width: $desktop-large) {
-    grid-template-columns: min-content;
-    grid-template-rows: min-content;
-    &__image-wrapper {
-      img {
-        max-width: 350px;
-        max-height: 400px;
-      }
-    }
-  }
-
   &__content {
     display: grid;
     justify-content: center;
@@ -59,6 +31,12 @@
     gap: 10px;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr;
+  }
+
+  &__summary {
+    color: $color--dark;
+    font-size: 14px;
+    margin: 0;
   }
 
   &__meta {
@@ -89,6 +67,34 @@
 
     &--talk {
       color: $color--talk;
+    }
+  }
+
+  @media (min-width: $mobile) {
+    grid-template-columns: min-content;
+    grid-template-rows: min-content;
+    &__image-wrapper {
+      img {
+        max-width: 300px;
+        max-height: 350px;
+      }
+    }
+  }
+
+  @media (min-width: $desktop) {
+    &__title {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media (min-width: $desktop-large) {
+    grid-template-columns: min-content;
+    grid-template-rows: min-content;
+    &__image-wrapper {
+      img {
+        max-width: 400px;
+        max-height: 400px;
+      }
     }
   }
 }

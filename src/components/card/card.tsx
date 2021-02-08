@@ -23,6 +23,7 @@ const Card: React.FC<ICardProps> = (props) => {
         </div>
         <div className="card__content">
           <h3 className="card__title">{props.title}</h3>
+          <p className="card__summary">{props.summary}</p>
           <div className="card__meta">
             <span className={`card__type card__type--${props.eventType}`}>
               {getTypeIcon()} {props.eventType}

@@ -54,6 +54,7 @@ const IndexHero: React.FC = () => {
           place={events[0].place}
           eventType={events[0].type.title}
           date={formatDate(events[0].date)}
+          summary={events[0].summary}
         />
       ) : (
         lottieAnimation
