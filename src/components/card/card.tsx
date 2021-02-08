@@ -22,7 +22,7 @@ const Card: React.FC<ICardProps> = (props) => {
           <img src={"http://localhost:1337" + props.image} />
         </div>
         <div className="card__content">
-          <h3 className="card__title">{props.name}</h3>
+          <h3 className="card__title">{props.title}</h3>
           <div className="card__meta">
             <span className={`card__type card__type--${props.eventType}`}>
               {getTypeIcon()} {props.eventType}
