@@ -97,7 +97,7 @@ const Event = (props: any) => {
             />
           </section>
         )}
-        {props.linkBundles && (
+        {props.linkBundles.length > 0 && (
           <section>
             <h2>Εξωτερικό βοηθητικό υλικό</h2>
             <div className="event__linkList-wrapper">
