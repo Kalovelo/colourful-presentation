@@ -7,6 +7,7 @@ exports.createPages = async ({ graphql, actions }) => {
           slug
           id
           title
+          description
           events {
             id
           }
@@ -14,6 +15,8 @@ exports.createPages = async ({ graphql, actions }) => {
         topics {
           slug
           id
+          title
+          description
           types {
             slug
             id
@@ -107,6 +110,7 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         events: eventIds,
         type: type.title,
+        description: type.description,
       },
     });
   });
@@ -138,6 +142,7 @@ exports.createPages = async ({ graphql, actions }) => {
             context: {
               events: eventIds,
               type: type.title,
+              topic: topic.title,
             },
           });
         })

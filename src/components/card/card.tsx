@@ -19,7 +19,7 @@ const Card: React.FC<ICardProps> = (props) => {
     <article className="card">
       <Link to={props.link}>
         <div className="card__image-wrapper">
-          <img src={"http://localhost:1337" + props.image} />
+          <img src={process.env.API_URL + props.image} />
         </div>
         <div className="card__content">
           <h3 className="card__title">{props.title}</h3>

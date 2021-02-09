@@ -1,14 +1,14 @@
+import { LinkOutlined } from "@ant-design/icons";
+import Prism from "prismjs";
 import React, { useEffect } from "react";
-import Card from "../../components/card/card";
+import { formatDate } from "../../utils/Date";
 import Cheatsheet from "../cheatsheet/cheatsheet";
 import Gallery from "../gallery/gallery";
 import Hero from "../hero/hero";
 import { link } from "../linkList/interface";
 import LinkList from "../linkList/linkList";
+import SEO from "../seo/seo";
 import "./event.scss";
-import Prism from "prismjs";
-import { formatDate } from "../../utils/Date";
-import { LinkOutlined } from "@ant-design/icons";
 
 const eventDetails = (
   date: string,
@@ -60,6 +60,7 @@ const eventDetails = (
 };
 
 const Event = (props: any) => {
+  console.log(props);
   useEffect(() => {
     Prism.highlightAll();
   });
@@ -76,51 +77,53 @@ const Event = (props: any) => {
   };
 
   return (
-    <div className="event">
-      <section className="event__hero">
-        <Hero
-          headTitle={props.title}
-          description={props.description}
-          element={eventDetails(
-            props.date,
-            props.place,
-            props.poster.url,
-            props.facebookEvent
-          )}
-        ></Hero>
-      </section>
-      {props.cheatsheet && (
-        <section>
-          <Cheatsheet
-            theme={props.type.title}
-            chapters={props.cheatsheet.chapters}
-          />
+    <>
+      <div className="event">
+        <section className="event__hero">
+          <Hero
+            headTitle={props.title}
+            description={props.description}
+            element={eventDetails(
+              props.date,
+              props.place,
+              props.poster.url,
+              props.facebookEvent
+            )}
+          ></Hero>
         </section>
-      )}
-      {props.linkBundles && (
-        <section>
-          <h2>Εξωτερικό βοηθητικό υλικό</h2>
-          <div className="event__linkList-wrapper">
-            {props.linkBundles.map((linkList: { title: string; link: link[] }) => (
-              <LinkList title={linkList.title} links={linkList.link} />
-            ))}
-          </div>
-        </section>
-      )}
-      {props.codesnippets.length > 0 && (
-        <section className="event__codeSnippet-wrapper">
-          <h2>Code Snippets</h2>
-          {props.codesnippets.map((codeSnippet: ICodeSnippet) =>
-            renderCodeSnippet(
-              codeSnippet.title,
-              codeSnippet.snippet,
-              codeSnippet.language
-            )
-          )}
-        </section>
-      )}
-      {props.gallery && <Gallery images={props.gallery.images} />}
-    </div>
+        {props.cheatsheet && (
+          <section>
+            <Cheatsheet
+              theme={props.type.title}
+              chapters={props.cheatsheet.chapters}
+            />
+          </section>
+        )}
+        {props.linkBundles && (
+          <section>
+            <h2>Εξωτερικό βοηθητικό υλικό</h2>
+            <div className="event__linkList-wrapper">
+              {props.linkBundles.map((linkList: { title: string; link: link[] }) => (
+                <LinkList title={linkList.title} links={linkList.link} />
+              ))}
+            </div>
+          </section>
+        )}
+        {props.codesnippets.length > 0 && (
+          <section className="event__codeSnippet-wrapper">
+            <h2>Code Snippets</h2>
+            {props.codesnippets.map((codeSnippet: ICodeSnippet) =>
+              renderCodeSnippet(
+                codeSnippet.title,
+                codeSnippet.snippet,
+                codeSnippet.language
+              )
+            )}
+          </section>
+        )}
+        {props.gallery && <Gallery images={props.gallery.images} />}
+      </div>
+    </>
   );
 };
 

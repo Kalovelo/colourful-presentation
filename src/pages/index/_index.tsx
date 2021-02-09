@@ -1,10 +1,11 @@
+import { useStaticQuery, graphql } from "gatsby";
 import React, { useEffect, useState } from "react";
 import Banner from "../../components/banner/banner";
 import Card from "../../components/card/card";
 import Hero from "../../components/hero/hero";
 import Layout from "../../components/layout/layout";
 import LottieAnimation from "../../components/Lottie/Lottie";
-import SEO from "../../components/seo";
+import SEO from "../../components/seo/seo";
 import { formatDate } from "../../utils/Date";
 import "./index.scss";
 
@@ -29,7 +30,18 @@ const banner2Props = {
     "Συζητάμε για εργαλεία, τεχνολογίες και δρώμενα. Επίσης ανταλλάζουμε αυτοκόλλητα.",
 };
 
-const IndexHero: React.FC = () => {
+interface IIndexHeroProps {
+  title: string;
+  description: string;
+}
+
+interface IIndexPageProps {
+  location: {
+    href: string;
+  };
+}
+
+const IndexHero: React.FC<IIndexHeroProps> = ({ title, description }) => {
   const [heroElement, setHeroElement] = useState<JSX.Element | null>(null);
 
   const lottieAnimation = (
@@ -67,22 +79,37 @@ const IndexHero: React.FC = () => {
     fetchUpcomingEvents(today);
   }, []);
 
-  return (
-    <Hero
-      element={heroElement!}
-      headTitle="Ο οδηγός σου στα προγραμματιστικά σου ταξίδια."
-      description="Νέες τεχνολογίες, νέα δρόμενα. Γίνε κόμβος της κοινότητας και έλα να το εξερευνήσουμε
-          μαζί!"
-    />
-  );
+  return <Hero element={heroElement!} headTitle={title} description={description} />;
 };
 
-const IndexPage: React.FC = () => {
+const IndexPage: React.FC<IIndexPageProps> = ({ location }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      api {
+        homepage {
+          title
+          description
+          SEOImage {
+            url
+          }
+        }
+      }
+    }
+  `);
+
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO
+        title={data.api.homepage.title}
+        description={data.api.homepage.description}
+        image={data.api.homepage.SEOImage.url}
+        url={location.href}
+      />
       <section>
-        <IndexHero />
+        <IndexHero
+          title={data.api.homepage.title}
+          description={data.api.homepage.description}
+        />
       </section>
       <section className="index__banners-wrapper">
         <h2 className="index__banners-title">Featuring both</h2>
