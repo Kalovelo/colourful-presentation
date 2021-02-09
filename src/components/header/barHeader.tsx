@@ -6,7 +6,7 @@ import { Link } from "gatsby";
 import React from "react";
 import "./barHeader.scss";
 import "./header.scss";
-import { IBarSubMenuProps, ITopic, IType } from "./interface";
+import { IBarSubMenuProps, ITopic } from "./interface";
 
 const BarSubmenu: React.FC<IBarSubMenuProps> = ({
   main,

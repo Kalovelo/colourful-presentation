@@ -20,7 +20,7 @@ const Layout: React.FC<ILayoutProps> = ({
   return (
     <>
       <Header />
-      <div className="layout">
+      <div className="layout slide-in-bottom">
         <main>{children}</main>
       </div>
       <Footer />
