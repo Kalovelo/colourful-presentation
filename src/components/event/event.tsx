@@ -7,7 +7,6 @@ import Gallery from "../gallery/gallery";
 import Hero from "../hero/hero";
 import { link } from "../linkList/interface";
 import LinkList from "../linkList/linkList";
-import SEO from "../seo/seo";
 import "./event.scss";
 
 const eventDetails = (
@@ -60,7 +59,6 @@ const eventDetails = (
 };
 
 const Event = (props: any) => {
-  console.log(props);
   useEffect(() => {
     Prism.highlightAll();
   });
