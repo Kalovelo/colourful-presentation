@@ -1,7 +1,7 @@
 import { LinkOutlined } from "@ant-design/icons";
 import Prism from "prismjs";
 import React, { useEffect } from "react";
-import { formatDate } from "../../utils/Date";
+import { formatDateWithHour } from "../../utils/Date";
 import Cheatsheet from "../cheatsheet/cheatsheet";
 import Gallery from "../gallery/gallery";
 import Hero from "../hero/hero";
@@ -16,7 +16,7 @@ const eventDetails = (
   facebookEvent: string
 ) => {
   const data = [];
-  if (date) data.push({ headTitle: "Πότε;", content: formatDate(date) });
+  if (date) data.push({ headTitle: "Πότε;", content: formatDateWithHour(date) });
   if (place) data.push({ headTitle: "Που;", content: place });
   if (facebookEvent)
     data.push({
@@ -49,7 +49,9 @@ const eventDetails = (
         <tbody>
           <tr>
             {data.map((item) => (
-              <td>{item.content}</td>
+              <td>
+                <span>{item.content}</span>
+              </td>
             ))}
           </tr>
         </tbody>
