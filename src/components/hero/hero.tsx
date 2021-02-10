@@ -1,7 +1,6 @@
 import React from "react";
-import createMarkup from "../../utils/markup";
-import Button from "../button/button";
 import "./hero.scss";
+import ReactMarkdown from "react-markdown";
 import { IHeroProps } from "./interface";
 
 const Hero: React.FC<IHeroProps> = ({ headTitle, description, element }: any) => {
@@ -9,10 +8,9 @@ const Hero: React.FC<IHeroProps> = ({ headTitle, description, element }: any) =>
     <div className="hero">
       <div className="hero__text">
         <h1 className="hero__title">{headTitle}</h1>
-        <p
-          dangerouslySetInnerHTML={createMarkup(description)}
-          className="hero__subtitle"
-        />
+        <p className="hero__subtitle">
+          <ReactMarkdown source={description} />
+        </p>
       </div>
       {element}
     </div>
