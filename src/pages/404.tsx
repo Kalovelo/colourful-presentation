@@ -16,7 +16,6 @@ const NotFoundPage = () => {
       }
     }
   `);
-  console.log(data);
   return (
     <Layout>
       <h1>{data.api.notFound404.headtitle}</h1>

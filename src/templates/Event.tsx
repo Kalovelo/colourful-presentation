@@ -11,8 +11,6 @@ interface IEventTemplateProps {
   };
 }
 export default (props: IEventTemplateProps) => {
-  // const [props, linkBundles] = [...data.api, data.api.links, data.api.code_snippets];
-  console.log(props);
   const event = props.pageContext.event;
   return (
     <Layout>

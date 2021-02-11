@@ -7,7 +7,7 @@
 
 import React from "react";
 import { Helmet } from "react-helmet";
-import { graphql } from "gatsby";
+import { analytics } from "./analytics";
 
 interface ISeoProps {
   description: string;
@@ -49,7 +49,9 @@ function SEO({ description, title, url, image }: ISeoProps) {
           content: url,
         },
       ]}
-    />
+    >
+      <script>{analytics}</script>
+    </Helmet>
   );
 }
 

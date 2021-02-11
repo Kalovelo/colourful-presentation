@@ -8,9 +8,9 @@ const Hero: React.FC<IHeroProps> = ({ headTitle, description, element }: any) =>
     <div className="hero">
       <div className="hero__text">
         <h1 className="hero__title">{headTitle}</h1>
-        <p className="hero__subtitle">
+        <span className="hero__subtitle">
           <ReactMarkdown source={description} />
-        </p>
+        </span>
       </div>
       {element}
     </div>
