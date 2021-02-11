@@ -61,6 +61,8 @@
 
   &__type {
     text-transform: lowercase;
+    color: $color--teal;
+
     &--workshop {
       color: $color--workshop;
     }

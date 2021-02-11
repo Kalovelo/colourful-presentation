@@ -3,6 +3,7 @@ import {
   EnvironmentOutlined,
   CalendarOutlined,
   AudioOutlined,
+  StarOutlined,
 } from "@ant-design/icons";
 import React from "react";
 import "./card.scss";
@@ -12,7 +13,14 @@ import { Link } from "gatsby";
 
 const Card: React.FC<ICardProps> = (props) => {
   const getTypeIcon = (): JSX.Element => {
-    return props.eventType === "workshop" ? <LaptopOutlined /> : <AudioOutlined />;
+    switch (props.eventType) {
+      case "workshop":
+        return <LaptopOutlined />;
+      case "talk":
+        return <AudioOutlined />;
+      default:
+        return <StarOutlined />;
+    }
   };
 
   return (
