@@ -30,6 +30,10 @@ button {
   border: none;
   outline: none;
 }
+
+body {
+  overflow-x: hidden;
+}
 * {
   scrollbar-gutter: stable !important;
 }
