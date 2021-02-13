@@ -14,6 +14,9 @@ ul,
 th,
 tr,
 span,
+label,
+input,
+textarea,
 p {
   font-family: $font--primary;
 }
@@ -33,6 +36,7 @@ button {
 
 body {
   overflow-x: hidden;
+  background: $color--light;
 }
 * {
   scrollbar-gutter: stable !important;

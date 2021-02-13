@@ -34,11 +34,10 @@ const Gallery: React.FC<IGalleryProps> = ({ images }: IGalleryProps) => {
       <h2 className="gallery__title">Στιγμές</h2>
       <div className="gallery__wrapper">
         {images.map((image: IImage, index: number) => (
-          <>
+          <span key={index}>
             <img
               onClick={handleOpen}
               className={largeTileIndeces.includes(index) ? "gallery__large" : ""}
-              key={index}
               src={process.env.API_URL + image.blob.url}
               alt={image.alternativeText}
             />
@@ -61,7 +60,7 @@ const Gallery: React.FC<IGalleryProps> = ({ images }: IGalleryProps) => {
                 />
               </Fade>
             </Modal>
-          </>
+          </span>
         ))}
       </div>
     </section>

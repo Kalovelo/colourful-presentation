@@ -1,0 +1,62 @@
+$contact-form-field-width: 300px;
+
+.contact {
+  &__snackbar--success {
+    .MuiSnackbarContent-root {
+      background: $color--teal;
+    }
+  }
+
+  &__snackbar--error {
+    .MuiSnackbarContent-root {
+      background: $color--error;
+    }
+  }
+}
+.contactForm {
+  background: $color--light;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px;
+  width: 800px;
+  border-radius: 20px;
+  max-width: 100%;
+  box-shadow: 0px 0px 26px -15px rgba(126, 13, 170, 0.75);
+
+  &__input-label-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    width: 320px;
+  }
+
+  &__input {
+    width: 100%;
+    border: none;
+    border-bottom: 2pt solid $color--pale-gray;
+    padding: 10px;
+
+    &:placeholder-shown {
+      color: $color--accent;
+    }
+
+    &--input {
+      height: 40px;
+      width: $contact-form-field-width;
+    }
+
+    &--textarea {
+      max-width: $contact-form-field-width;
+      min-width: $contact-form-field-width;
+      width: $contact-form-field-width !important;
+      height: 100%;
+      min-height: 100px;
+    }
+
+    &--error {
+      border-bottom: 2pt solid $color--error;
+    }
+  }
+}

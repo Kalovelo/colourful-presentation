@@ -1,6 +1,8 @@
+import { ElementRef } from "react";
+
 export interface ΙΒuttonProps {
-  link?: string;
-  action?: Function;
-  children: any;
-  extraClass?: string;
+  disabled: boolean;
+  buttonRef: HTMLButtonElement | null;
+  text: string;
+  action: Function;
 }

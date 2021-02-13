@@ -5,23 +5,20 @@ import {
   InstagramOutlined,
   LinkedinOutlined,
 } from "@ant-design/icons";
+import { Link } from "gatsby";
 import React from "react";
-import "./footer.scss";
 import Newsletter from "../newsletter/newsletter";
+import "./footer.scss";
 
 const Footer: React.FC = () => {
   const Links: Array<ILinks> = [
     {
-      title: "About",
-      url: "/About",
-    },
-    {
       title: "Contact",
-      url: "/About",
+      url: "/contact/",
     },
     {
       title: "TOU",
-      url: "/About",
+      url: "/tou/",
     },
   ];
 
@@ -55,7 +52,7 @@ const Footer: React.FC = () => {
         <ul className="Footer__links Footer__links--main">
           {Links.map((link, index) => (
             <li key={index} className="Footer__link">
-              <a href={link.url}>{link.title}</a>
+              <Link to={link.url}>{link.title}</Link>
             </li>
           ))}
         </ul>

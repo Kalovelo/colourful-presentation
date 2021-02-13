@@ -2,15 +2,19 @@ import React from "react";
 import "./button.scss";
 import { ΙΒuttonProps } from "./interface";
 
-const Button: React.FC<ΙΒuttonProps> = ({ link, action, children, extraClass }) => {
+const Button: React.FC<ΙΒuttonProps> = ({ disabled, buttonRef, text, action }) => {
   return (
-    <button onClick={() => action} className={`button--toggle learn-more`}>
+    <button
+      disabled={disabled}
+      ref={buttonRef}
+      type="submit"
+      onClick={() => action}
+      className={`button button--toggle learn-more`}
+    >
       <span className="circle" aria-hidden="true">
         <span className="icon arrow"></span>
       </span>
-      <a href={link} className="button-text">
-        {children}
-      </a>
+      <span className="button-text">{text}</span>
     </button>
   );
 };

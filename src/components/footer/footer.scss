@@ -1,6 +1,7 @@
 .Footer {
   display: flex;
   flex-direction: column;
+  margin-top: 150px;
 
   &__pit {
     @include wrapper--paddings(20px, 40px, 50px, 50px);
@@ -40,6 +41,8 @@
   }
 
   @media (min-width: $tablet) {
+    margin-top: initial;
+
     &__pit {
       flex-direction: row;
       grid-template-areas: "menu social credits";
