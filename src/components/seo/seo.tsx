@@ -22,7 +22,6 @@ function SEO({ description, title, url, image }: ISeoProps) {
         lang: "gr",
       }}
       title={title}
-      // titleTemplate={title ? `%s | ${title}` : null}
       meta={[
         {
           name: `description`,

@@ -1,8 +1,18 @@
+const activeEnv =
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development";
+
+console.log(`Using environment config: '${activeEnv}'`);
+
+require("dotenv").config({
+  path: `.env.${activeEnv}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `Colourful Presentation`,
     description: `Workshop and talks showcase`,
     author: `@kalovelo`,
+    url: process.env.GATSBY_URL,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -28,7 +38,7 @@ module.exports = {
         // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
         fieldName: "api",
         // Url to query from
-        url: "http://localhost:1337/graphql",
+        url: process.env.API_URL + "/graphql",
       },
     },
     `gatsby-transformer-sharp`,
