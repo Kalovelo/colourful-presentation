@@ -8,6 +8,7 @@ exports.createPages = async ({ graphql, actions }) => {
           id
           title
           description
+          plural_name
           events {
             id
           }
@@ -21,6 +22,7 @@ exports.createPages = async ({ graphql, actions }) => {
             slug
             id
             title
+            plural_name
           }
           events {
             id
@@ -111,6 +113,7 @@ exports.createPages = async ({ graphql, actions }) => {
         events: eventIds,
         type: type.title,
         description: type.description,
+        plural_name: type.plural_name,
       },
     });
   });

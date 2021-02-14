@@ -7,14 +7,19 @@ import SEO from "../components/seo/seo";
 
 export default (props: {
   location: { origin: string; href: string };
-  pageContext: { type: string; topic: string | undefined; description: string };
+  pageContext: {
+    type: string;
+    topic: string | undefined;
+    description: string;
+    plural_name: string | undefined;
+  };
   data: { api: { events: IEvent[] } };
 }) => {
   const archive = props.pageContext;
   return (
     <Layout>
       <SEO
-        title={archive.topic ? archive.topic : archive.type}
+        title={archive.topic ? archive.topic : archive.plural_name}
         description={archive.description}
         url={props.location.href}
       />
