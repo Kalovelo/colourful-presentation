@@ -5,8 +5,9 @@ import React, { useState } from "react";
 import ContactForm from "../components/contact/contact";
 import Hero from "../components/hero/hero";
 import Layout from "../components/layout/layout";
+import SEO from "../components/seo/seo";
 
-export default () => {
+export default ({ location }: { location: { pathname: string } }) => {
   const data = useStaticQuery(graphql`
     query {
       api {
@@ -15,6 +16,14 @@ export default () => {
           description
           error_message
           success_message
+        }
+      }
+      site {
+        siteMetadata {
+          title
+          description
+          author
+          url
         }
       }
     }
@@ -30,6 +39,11 @@ export default () => {
   return (
     <>
       <Layout>
+        <SEO
+          url={data.site.siteMetadata.url + location.pathname}
+          title={data.api.contact.title}
+          description={data.api.contact.description}
+        />
         <section>
           <Hero
             headTitle={data.api.contact.title}
