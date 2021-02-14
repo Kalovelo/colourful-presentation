@@ -21,6 +21,7 @@ module.exports = {
       resolve: "gatsby-plugin-sass",
       options: {
         data: `@import "${__dirname}/src/styles/global/global";`,
+        postCssPlugins: [require(`autoprefixer`)],
       },
     },
     {
