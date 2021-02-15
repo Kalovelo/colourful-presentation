@@ -7,6 +7,12 @@
     margin: 25px ($paddings--mobile);
   }
 
+  &__hero {
+    .hero__subtitle {
+      font-size: 1.2rem;
+    }
+  }
+
   h2 {
     text-align: center;
     margin: 80px 0 50px 0;
@@ -28,7 +34,6 @@
   }
 
   &__details-poster {
-    max-width: 500px;
     max-width: 100%;
   }
 
@@ -63,16 +68,22 @@
     &__details-wrapper {
       width: 350px;
     }
+
+    &__details-poster {
+      width: 350px;
+      max-width: 350px;
+    }
   }
   @media (min-width: $desktop-large) {
     section {
       margin: 200px ($paddings--mobile);
     }
     &__details-wrapper {
-      width: 500px;
+      max-width: 500px;
     }
+
     .event__hero {
-      margin: 0 ($paddings--mobile);
+      margin: initial ($paddings--mobile);
     }
     &__codeSnippet {
       width: 800px;

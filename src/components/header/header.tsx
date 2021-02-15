@@ -25,6 +25,7 @@ const Header: React.FC = () => {
   `);
 
   const getUniqueEndpoints = (data: IGraphqlHeaderSchema) => {
+    const fetchedTopics: Array<string> = [];
     const endpoints: any = {};
     data.api.events.forEach((event: IEvent) => {
       const eventType = event.type;
@@ -32,7 +33,8 @@ const Header: React.FC = () => {
       if (!endpoints.hasOwnProperty(eventType.title)) {
         endpoints[eventType.title] = { slug: eventType.slug, topics: [] };
       }
-      if (!endpoints[eventType.title].topics.hasOwnProperty(eventTopic.title)) {
+      if (!fetchedTopics.includes(eventTopic.title)) {
+        fetchedTopics.push(eventTopic.title);
         endpoints[eventType.title].topics.push(eventTopic);
       }
     });
@@ -41,6 +43,7 @@ const Header: React.FC = () => {
   };
 
   const endpoints = getUniqueEndpoints(data);
+  console.log(endpoints);
   return (
     <header className="header">
       <div className="header__wrapper">

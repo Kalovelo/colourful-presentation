@@ -40,7 +40,7 @@ const BarSubmenu: React.FC<IBarSubMenuProps> = ({
       <Link
         aria-describedby={popId}
         className="barHeader__main-link"
-        to={`/${main.toLowerCase()}`}
+        to={`/${main}`}
       >
         {main}
       </Link>

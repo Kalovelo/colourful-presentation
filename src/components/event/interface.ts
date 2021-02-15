@@ -45,9 +45,7 @@ interface IEventProps {
   gallery: [
     {
       image: {
-        blob: {
-          url: string;
-        };
+        url: string;
         alternativeText: string;
       };
     }

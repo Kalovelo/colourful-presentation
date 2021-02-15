@@ -34,10 +34,7 @@ const eventDetails = (
     });
   return (
     <div className="event__details-wrapper">
-      <img
-        className="event__details-poster"
-        src={process.env.API_URL + poster}
-      ></img>
+      <img className="event__details-poster" src={poster}></img>
       <table className="event__details-table">
         <thead>
           <tr>
@@ -79,7 +76,7 @@ const Event = (props: any) => {
   return (
     <>
       <div className="event">
-        <section className="event__hero">
+        <div className="event__hero">
           <Hero
             headTitle={props.title}
             description={props.description}
@@ -90,7 +87,7 @@ const Event = (props: any) => {
               props.facebookEvent
             )}
           ></Hero>
-        </section>
+        </div>
         {props.cheatsheet && (
           <section>
             <Cheatsheet

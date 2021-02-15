@@ -1,7 +1,5 @@
 export interface IImage {
-  blob: {
-    url: string;
-  };
+  url: string;
   alternativeText: string;
 }
 

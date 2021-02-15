@@ -49,10 +49,8 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           gallery {
             images: image {
-              blob {
-                url
-              }
-              alternativeText: alternative_text
+              url
+              alternativeText
             }
           }
           linkBundles: links {
@@ -82,7 +80,9 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
   if (result.errors) {
+    console.log("AAAAAA");
     throw result.errors;
+    return;
   }
 
   // Create blog articles pages.
@@ -127,8 +127,8 @@ exports.createPages = async ({ graphql, actions }) => {
           query {
             api {
                 events(where:{
-                  topic:{id:${topic.id}}
-                  type:{id:${type.id}}
+                  topic:{id:"${topic.id}"}
+                  type:{id:"${type.id}"}
                 }){
                   id
               }

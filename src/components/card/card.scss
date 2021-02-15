@@ -16,7 +16,7 @@
     display: flex;
     img {
       max-width: 300px;
-      max-height: 350px;
+      max-height: 300px;
       object-fit: contain;
       border-top-left-radius: 30px;
       border-top-right-radius: 30px;
@@ -78,14 +78,14 @@
     &__image-wrapper {
       img {
         max-width: 300px;
-        max-height: 350px;
+        max-height: 300px;
       }
     }
   }
 
   @media (min-width: $desktop) {
     &__title {
-      font-size: 1.6rem;
+      font-size: 1.3rem;
     }
   }
 
@@ -95,7 +95,7 @@
     &__image-wrapper {
       img {
         max-width: 400px;
-        max-height: 400px;
+        max-height: 350px;
       }
     }
   }

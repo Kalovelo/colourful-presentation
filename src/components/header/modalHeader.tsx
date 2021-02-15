@@ -18,7 +18,7 @@ const ModalMenu: React.FC<IMenuProps> = ({ main, subitems }: any) => {
   return (
     <div className="modalHeader__list-toggle-wrapper">
       <ListItem className="modalHeader__list-item modalHeader__list-item--capitalize">
-        <Link to={`/${main.toLowerCase()}`}>{main}</Link>
+        <Link to={`/${main}`}>{main}</Link>
         {subitems?.length > 0 ? (
           openCollapse ? (
             <ExpandLess className="modalHeader__list-toggle" onClick={handleClick} />

@@ -38,7 +38,7 @@ const Gallery: React.FC<IGalleryProps> = ({ images }: IGalleryProps) => {
             <img
               onClick={handleOpen}
               className={largeTileIndeces.includes(index) ? "gallery__large" : ""}
-              src={process.env.API_URL + image.blob.url}
+              src={image.url}
               alt={image.alternativeText}
             />
             <Modal
@@ -54,10 +54,7 @@ const Gallery: React.FC<IGalleryProps> = ({ images }: IGalleryProps) => {
               }}
             >
               <Fade in={open}>
-                <img
-                  src={process.env.API_URL + image.blob.url}
-                  alt={image.alternativeText}
-                />
+                <img src={image.url} alt={image.alternativeText} />
               </Fade>
             </Modal>
           </span>
