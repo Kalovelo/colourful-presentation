@@ -32,7 +32,7 @@ module.exports = {
         // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
         fieldName: "api",
         // Url to query from
-        url: process.env.API_URL + "/graphql",
+        url: process.env.GATSBY_API_URL + "/graphql",
       },
     },
     `gatsby-transformer-sharp`,

@@ -19,7 +19,6 @@ const NotFoundPage = () => {
     }
   `);
 
-  console.log(api);
   return (
     <Layout>
       <SEO

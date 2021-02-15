@@ -50,9 +50,8 @@ const IndexHero: React.FC<IIndexHeroProps> = ({ title, description }) => {
 
   const fetchUpcomingEvents = async (today: string) => {
     const res = await fetch(
-      `${process.env.API_URL}/events?_where[date_gte]=${today}&_sort=date:ASC`,
+      `${process.env.GATSBY_API_URL}/events?_where[date_gte]=${today}&_sort=date:ASC`,
       {
-        credentials: "same-origin",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
       }
     );

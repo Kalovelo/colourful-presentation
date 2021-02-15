@@ -80,9 +80,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
   if (result.errors) {
-    console.log("AAAAAA");
     throw result.errors;
-    return;
   }
 
   // Create blog articles pages.

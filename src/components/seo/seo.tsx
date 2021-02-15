@@ -33,7 +33,7 @@ function SEO({ description, title, url, image }: ISeoProps) {
         },
         {
           property: `og:image`,
-          content: image ? process.env.API_URL + image : undefined,
+          content: image ? image : undefined,
         },
         {
           property: `og:description`,

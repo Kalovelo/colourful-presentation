@@ -8,7 +8,7 @@ const Newsletter = () => {
   return (
     <div className="newsletter">
       <form
-        action={`https://gmail.us7.list-manage.com/subscribe/post?u=${process.env.MAILCHIMP_FORM_U}&amp;id=${process.env.MAILCHIMP_FORM_ID}`}
+        action={`https://gmail.us7.list-manage.com/subscribe/post?u=${process.env.GATSBY_MAILCHIMP_FORM_U}&amp;id=${process.env.GATSBY_MAILCHIMP_FORM_ID}`}
         method="post"
         id="mc-embedded-subscribe-form"
         name="mc-embedded-subscribe-form"

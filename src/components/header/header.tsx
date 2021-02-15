@@ -43,7 +43,6 @@ const Header: React.FC = () => {
   };
 
   const endpoints = getUniqueEndpoints(data);
-  console.log(endpoints);
   return (
     <header className="header">
       <div className="header__wrapper">
