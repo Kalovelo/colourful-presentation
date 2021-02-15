@@ -8,6 +8,8 @@ import Layout from "../components/layout/layout";
 import SEO from "../components/seo/seo";
 
 export default ({ location }: { location: { pathname: string } }) => {
+  const url = typeof window !== "undefined" ? window.location.href : "";
+
   const data = useStaticQuery(graphql`
     query {
       api {
@@ -16,14 +18,6 @@ export default ({ location }: { location: { pathname: string } }) => {
           description
           error_message
           success_message
-        }
-      }
-      site {
-        siteMetadata {
-          title
-          description
-          author
-          url
         }
       }
     }
@@ -40,7 +34,7 @@ export default ({ location }: { location: { pathname: string } }) => {
     <>
       <Layout>
         <SEO
-          url={data.site.siteMetadata.url + location.pathname}
+          url={url + location.pathname}
           title={data.api.contact.title}
           description={data.api.contact.description}
         />

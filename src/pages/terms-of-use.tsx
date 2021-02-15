@@ -5,6 +5,8 @@ import Layout from "../components/layout/layout";
 import SEO from "../components/seo/seo";
 
 const NotFoundPage = () => {
+  const url = typeof window !== "undefined" ? window.location.href : "";
+
   const { api, site } = useStaticQuery(graphql`
     query {
       api {
@@ -12,11 +14,6 @@ const NotFoundPage = () => {
           text
           title
           seo_summary
-        }
-      }
-      site {
-        siteMetadata {
-          url
         }
       }
     }
@@ -28,7 +25,7 @@ const NotFoundPage = () => {
       <SEO
         description={api.termsOfUse.seo_summary}
         title={api.termsOfUse.title}
-        url={site.siteMetadata.url}
+        url={url}
       />
       <h1>{api.termsOfUse.title}</h1>
       <ReactMarkdown source={api.termsOfUse.text}></ReactMarkdown>
