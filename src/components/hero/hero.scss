@@ -61,6 +61,10 @@
       align-items: flex-start;
     }
 
+    &__element {
+      width: 60%;
+    }
+
     &__title {
       width: 500px;
       font-size: 2rem;
