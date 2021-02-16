@@ -12,7 +12,7 @@ const Hero: React.FC<IHeroProps> = ({ headTitle, description, element }: any) =>
           <ReactMarkdown source={description} />
         </span>
       </div>
-      {element}
+      <div className="hero__element">{element}</div>
     </div>
   );
 };

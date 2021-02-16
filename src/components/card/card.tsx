@@ -24,7 +24,7 @@ const Card: React.FC<ICardProps> = (props) => {
   };
 
   return (
-    <article className="card">
+    <article className="card fade-in">
       <Link to={props.link}>
         <div className="card__image-wrapper">
           <img src={props.image} />
