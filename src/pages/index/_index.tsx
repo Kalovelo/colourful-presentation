@@ -42,43 +42,13 @@ interface IIndexPageProps {
 }
 
 const IndexHero: React.FC<IIndexHeroProps> = ({ title, description }) => {
-  const [heroElement, setHeroElement] = useState<JSX.Element | null>(null);
-
   const lottieAnimation = (
     <LottieAnimation animation={animation} shouldPlay={true} />
   );
 
-  const fetchUpcomingEvents = async (today: string) => {
-    const res = await fetch(
-      `${process.env.GATSBY_API_URL}/events?_where[date_gte]=${today}&_sort=date:ASC`,
-      {
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-      }
-    );
-    const events = await res.json();
-    setHeroElement(
-      events.length > 0 ? (
-        <Card
-          link={`/${events[0].type.slug}/${events[0].topic.slug}/${events[0].slug}/`}
-          image={events[0].poster.url}
-          title={events[0].title}
-          place={events[0].place}
-          eventType={events[0].type.title}
-          date={formatDate(events[0].date)}
-          summary={events[0].summary}
-        />
-      ) : (
-        lottieAnimation
-      )
-    );
-  };
-
-  useEffect(() => {
-    const today: string = new Date().toISOString();
-    fetchUpcomingEvents(today);
-  }, []);
-
-  return <Hero element={heroElement!} headTitle={title} description={description} />;
+  return (
+    <Hero element={lottieAnimation} headTitle={title} description={description} />
+  );
 };
 
 const IndexPage: React.FC<IIndexPageProps> = ({ location }) => {
