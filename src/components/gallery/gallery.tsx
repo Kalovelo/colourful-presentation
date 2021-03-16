@@ -8,7 +8,8 @@ import Fade from "@material-ui/core/Fade";
 import { IGalleryProps, IImage } from "./interface";
 
 const Gallery: React.FC<IGalleryProps> = ({ images }: IGalleryProps) => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState<boolean>(false);
+  const [chosenImage, setChosenImage] = React.useState<number>(0);
 
   const getLargeImagesIndeces = () => {
     const maxLargeTiles = Math.ceil(images.length / 4);
@@ -19,7 +20,8 @@ const Gallery: React.FC<IGalleryProps> = ({ images }: IGalleryProps) => {
     return largeTileIndeces;
   };
 
-  const handleOpen = () => {
+  const handleOpen = (index: number) => {
+    setChosenImage(index);
     setOpen(true);
   };
 
@@ -36,29 +38,32 @@ const Gallery: React.FC<IGalleryProps> = ({ images }: IGalleryProps) => {
         {images.map((image: IImage, index: number) => (
           <span key={index}>
             <img
-              onClick={handleOpen}
+              onClick={() => handleOpen(index)}
               className={largeTileIndeces.includes(index) ? "gallery__large" : ""}
               src={image.url}
               alt={image.alternativeText}
             />
-            <Modal
-              aria-labelledby="transition-modal-title"
-              className="gallery__modal"
-              aria-describedby="transition-modal-description"
-              open={open}
-              onClose={handleClose}
-              closeAfterTransition
-              BackdropComponent={Backdrop}
-              BackdropProps={{
-                timeout: 500,
-              }}
-            >
-              <Fade in={open}>
-                <img src={image.url} alt={image.alternativeText} />
-              </Fade>
-            </Modal>
           </span>
         ))}
+        <Modal
+          aria-labelledby="transition-modal-title"
+          className="gallery__modal"
+          aria-describedby="transition-modal-description"
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
+        >
+          <Fade in={open}>
+            <img
+              src={images[chosenImage].url}
+              alt={images[chosenImage].alternativeText}
+            />
+          </Fade>
+        </Modal>
       </div>
     </section>
   );
