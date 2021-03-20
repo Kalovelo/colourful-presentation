@@ -52,7 +52,7 @@ const NotFoundPage = () => {
       <section className="about__hero">
         <div className="about__image-wrapper">
           <img src={primary_image.url} alt={primary_image.alternativeText} />
-          <img src={primary_image.url} alt={secondary_image.alternativeText} />
+          <img src={secondary_image.url} alt={secondary_image.alternativeText} />
         </div>
         <div className="about__description-wrapper">
           <h1>{title}</h1>
