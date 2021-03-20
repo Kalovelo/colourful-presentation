@@ -20,6 +20,10 @@ const Footer: React.FC = () => {
       title: "Όροι χρήσης",
       url: "/terms-of-use/",
     },
+    {
+      title: "Σχετικά",
+      url: "/about/",
+    },
   ];
 
   const social: Array<ISocial> = [

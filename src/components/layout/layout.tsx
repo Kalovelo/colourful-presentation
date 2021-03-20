@@ -13,17 +13,13 @@ import Footer from "../footer/footer";
 import { ILayoutProps } from "./interface";
 import CookieNotice from "../cookie_notice/cookieNotice";
 
-const Layout: React.FC<ILayoutProps> = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+const Layout: React.FC<ILayoutProps> = ({ children, className }) => {
   return (
     <>
       <Header />
       <CookieNotice />
       <div className="layout slide-in-bottom">
-        <main>{children}</main>
+        <main className={className}>{children}</main>
       </div>
       <Footer />
     </>
