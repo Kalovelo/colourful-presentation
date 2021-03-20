@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import Layout from "../../components/layout/layout";
-import { IAboutData, IExperience } from "./interface";
+import { IAboutData, IExperience } from "./_interface";
 import "./about.scss";
 // import SEO from "../components/seo/seo";
 

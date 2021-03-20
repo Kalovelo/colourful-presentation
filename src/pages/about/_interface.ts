@@ -1,5 +1,3 @@
-import { string } from "prop-types";
-
 export interface IExperience {
   title: string;
   brief: string;
