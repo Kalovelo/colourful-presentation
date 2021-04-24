@@ -1,12 +1,15 @@
-import React from "react";
+import React, { forwardRef, LegacyRef } from "react";
 import "./button.scss";
 import { ΙΒuttonProps } from "./interface";
 
-const Button: React.FC<ΙΒuttonProps> = ({ disabled, buttonRef, text, action }) => {
+const Button = (
+  { action, text, disabled }: ΙΒuttonProps,
+  ref: LegacyRef<HTMLButtonElement>
+) => {
   return (
     <button
       disabled={disabled}
-      ref={buttonRef}
+      ref={ref}
       type="submit"
       onClick={() => action}
       className={`button button--toggle learn-more`}
@@ -19,4 +22,4 @@ const Button: React.FC<ΙΒuttonProps> = ({ disabled, buttonRef, text, action })
   );
 };
 
-export default Button;
+export default forwardRef(Button);

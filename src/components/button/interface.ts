@@ -1,8 +1,7 @@
-import { ElementRef } from "react";
+import { ElementRef, LegacyRef } from "react";
 
 export interface ΙΒuttonProps {
   disabled: boolean;
-  buttonRef: HTMLButtonElement | null;
   text: string;
-  action: Function;
+  action?: Function;
 }

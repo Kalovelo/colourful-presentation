@@ -11,7 +11,7 @@ export default (props: {
     type: string;
     topic: string | undefined;
     description: string;
-    plural_name: string | undefined;
+    plural_name: string;
   };
   data: { api: { events: IEvent[] } };
 }) => {

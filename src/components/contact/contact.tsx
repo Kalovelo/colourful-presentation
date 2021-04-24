@@ -1,5 +1,5 @@
 import { Field, Form, Formik, FormikValues } from "formik";
-import React, { useRef } from "react";
+import { default as React, useRef } from "react";
 import Button from "../button/button";
 import "./contact.scss";
 import { IContactProps, IFormFields } from "./interface";

@@ -35,7 +35,6 @@ const Newsletter = () => {
             name="subscribe"
             id="mc-embedded-subscribe"
             className="button"
-            s
           >
             {arrowIcon}Εγγραφή
           </button>
