@@ -23,11 +23,6 @@ interface ICheatsheet {
   ];
 }
 
-interface ICodeSnippet {
-  title: string;
-  language: string;
-  snippet: string;
-}
 interface IEventProps {
   poster: {
     url: string;
@@ -40,7 +35,7 @@ interface IEventProps {
   facebook_event: string | null | undefined;
   description: string;
   linkBundles: Array<ILinkBundle> | null | undefined;
-  codeSnippets: [ICodeSnippet];
+  codeSnippets: [ISnippet];
   cheatsheet: ICheatsheet | null | undefined;
   gallery: [
     {

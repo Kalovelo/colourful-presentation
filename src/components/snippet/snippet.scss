@@ -1,0 +1,27 @@
+.snippet {
+  display: flex;
+  flex-direction: column;
+
+  &__code {
+    border-radius: 20px;
+    padding: 50px;
+  }
+
+  &__button {
+    right: 0;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    width: min-content;
+    align-self: flex-end;
+    cursor: pointer;
+  }
+
+  &__button-text {
+    height: 1.5rem;
+  }
+
+  @media (min-width: $desktop-large) {
+    width: 800px;
+  }
+}

@@ -7,6 +7,7 @@ import Gallery from "../gallery/gallery";
 import Hero from "../hero/hero";
 import { link } from "../linkList/interface";
 import LinkList from "../linkList/linkList";
+import Snippet from "../snippet/snippet";
 import "./event.scss";
 
 const eventDetails = (
@@ -62,17 +63,6 @@ const Event = (props: any) => {
     Prism.highlightAll();
   });
 
-  const renderCodeSnippet = (title: string, snippet: string, language: string) => {
-    return (
-      <div className="event__codeSnippet">
-        <h4>{title}</h4>
-        <pre className="event__codeSnippet-code">
-          <code className={`language-${language}`}>{snippet}</code>
-        </pre>
-      </div>
-    );
-  };
-
   return (
     <>
       <div className="event">
@@ -109,13 +99,9 @@ const Event = (props: any) => {
         {props.codesnippets.length > 0 && (
           <section className="event__codeSnippet-wrapper">
             <h2>Code Snippets</h2>
-            {props.codesnippets.map((codeSnippet: ICodeSnippet) =>
-              renderCodeSnippet(
-                codeSnippet.title,
-                codeSnippet.snippet,
-                codeSnippet.language
-              )
-            )}
+            {props.codesnippets.map((snippet: ISnippet) => (
+              <Snippet {...snippet} />
+            ))}
           </section>
         )}
         {props.gallery && <Gallery images={props.gallery.images} />}
