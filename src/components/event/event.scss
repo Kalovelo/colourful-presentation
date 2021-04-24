@@ -44,8 +44,9 @@
         padding-bottom: 10px !important;
       }
     }
-    td {
+    td > span {
       width: 150px !important;
+      word-wrap: anywhere;
     }
     text-align: center;
   }
@@ -68,7 +69,7 @@
     }
 
     &__details-poster {
-      width: 400px;
+      width: 100%;
       max-width: 400px;
     }
   }
