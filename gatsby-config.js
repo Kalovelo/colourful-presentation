@@ -68,5 +68,18 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Stella's Events`,
+        short_name: `Stella's Events`,
+        start_url: `/`,
+        background_color: `#fff`,
+        theme_color: `#735394`,
+        display: `minimal-ui`,
+        icon: `src/images/favicon.png`,
+      },
+    },
+    "gatsby-plugin-offline",
   ],
 };
