@@ -36,8 +36,6 @@ module.exports = {
         url: process.env.GATSBY_API_URL + "/graphql",
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
