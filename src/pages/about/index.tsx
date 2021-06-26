@@ -62,8 +62,8 @@ const NotFoundPage = () => {
       <section className="about__experience">
         <h2>{experience_section_title}</h2>
         <div className="about__experience-wrapper">
-          {experience.map((experience: IExperience) => (
-            <article className="about__experience">
+          {experience.map((experience: IExperience, index: number) => (
+            <article key={index} className="about__experience">
               <h3>{experience.title}</h3>
               <ReactMarkdown source={experience.brief} />
             </article>

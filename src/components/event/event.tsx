@@ -39,15 +39,15 @@ const eventDetails = (
       <table className="event__details-table">
         <thead>
           <tr>
-            {data.map((item) => (
-              <th>{item.headTitle}</th>
+            {data.map((item, index) => (
+              <th key={index}>{item.headTitle}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           <tr>
-            {data.map((item) => (
-              <td>
+            {data.map((item, index) => (
+              <td key={index}>
                 <span>{item.content}</span>
               </td>
             ))}
@@ -90,17 +90,23 @@ const Event = (props: any) => {
           <section>
             <h2>Εξωτερικό βοηθητικό υλικό</h2>
             <div className="event__linkList-wrapper">
-              {props.linkBundles.map((linkList: { title: string; link: link[] }) => (
-                <LinkList title={linkList.title} links={linkList.link} />
-              ))}
+              {props.linkBundles.map(
+                (linkList: { title: string; link: link[] }, index: number) => (
+                  <LinkList
+                    key={index}
+                    title={linkList.title}
+                    links={linkList.link}
+                  />
+                )
+              )}
             </div>
           </section>
         )}
         {props.codesnippets.length > 0 && (
           <section className="event__codeSnippet-wrapper">
             <h2>Code Snippets</h2>
-            {props.codesnippets.map((snippet: ISnippet) => (
-              <Snippet {...snippet} />
+            {props.codesnippets.map((snippet: ISnippet, index: number) => (
+              <Snippet key={index} {...snippet} />
             ))}
           </section>
         )}
