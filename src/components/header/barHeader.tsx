@@ -3,7 +3,8 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuItem from "@material-ui/core/MenuItem";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import { Link } from "gatsby";
-import React from "react";
+import React, { useContext } from "react";
+import { OnlineContext } from "../context/NetworkContext";
 import "./barHeader.scss";
 import "./header.scss";
 import { IBarSubMenuProps, ITopic } from "./interface";
@@ -79,6 +80,10 @@ const BarSubmenu: React.FC<IBarSubMenuProps> = ({
 };
 
 const BarHeader: React.FC<any> = ({ data }: any) => {
+  const context = useContext(OnlineContext);
+
+  console.log(context);
+
   return (
     <div className="barHeader">
       <nav>

@@ -1,10 +1,12 @@
 import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
+import React, { useContext } from "react";
+import { OnlineContext, OnlineContextProvider } from "../context/NetworkContext";
 import Background from "./background";
 import BarHeader from "./barHeader";
 import "./header.scss";
 import { IEvent, IGraphqlHeaderSchema } from "./interface";
 import ModalHeader from "./modalHeader";
+import WifiOffIcon from "@material-ui/icons/WifiOff";
 
 const Header: React.FC = () => {
   const data: IGraphqlHeaderSchema = useStaticQuery(graphql`
@@ -44,15 +46,20 @@ const Header: React.FC = () => {
 
   const endpoints = getUniqueEndpoints(data);
   return (
-    <header className="header">
-      <div className="header__wrapper">
-        <BarHeader data={endpoints} />
-        <ModalHeader data={endpoints} />
-      </div>
-      <span className="header__background">
-        <Background />
-      </span>
-    </header>
+    <OnlineContextProvider>
+      <header className="header">
+        <div className="header__wrapper">
+          <BarHeader data={endpoints} />
+          <ModalHeader data={endpoints} />
+          <span className="header__networkStatus">
+            {typeof navigator === "object" && navigator.onLine && <WifiOffIcon />}
+          </span>
+        </div>
+        <span className="header__background">
+          <Background />
+        </span>
+      </header>
+    </OnlineContextProvider>
   );
 };
 
