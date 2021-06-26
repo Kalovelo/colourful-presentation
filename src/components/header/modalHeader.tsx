@@ -51,10 +51,6 @@ const ModalHeader: React.FC<any> = ({ data }: any) => {
     setState(open);
   };
 
-  const context = useContext(OnlineContext);
-
-  console.log(context);
-
   return (
     <nav className="modalHeader">
       <button className="modalHeader__toggle" onClick={() => toggleDrawer(true)}>

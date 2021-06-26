@@ -80,10 +80,6 @@ const BarSubmenu: React.FC<IBarSubMenuProps> = ({
 };
 
 const BarHeader: React.FC<any> = ({ data }: any) => {
-  const context = useContext(OnlineContext);
-
-  console.log(context);
-
   return (
     <div className="barHeader">
       <nav>

@@ -15,16 +15,12 @@ export const OnlineContextProvider = ({
     typeof navigator === "object" && navigator.onLine
   );
 
-  const updateOnlineStatus = () => {
-    setIsOnline(typeof navigator === "object" && navigator.onLine);
-  };
-
   useEffect(() => {
-    document.addEventListener("online", updateOnlineStatus);
-    document.addEventListener("offline", updateOnlineStatus);
+    window.addEventListener("online", () => setIsOnline(true));
+    window.addEventListener("offline", () => setIsOnline(false));
     return () => {
-      document.removeEventListener("online", updateOnlineStatus);
-      document.removeEventListener("offline", updateOnlineStatus);
+      window.removeEventListener("online", () => setIsOnline(true));
+      window.removeEventListener("offline", () => setIsOnline(false));
     };
   }, []);
 
