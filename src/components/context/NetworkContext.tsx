@@ -11,9 +11,7 @@ export const OnlineContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [isOnline, setIsOnline] = useState<boolean>(
-    typeof navigator === "object" && navigator.onLine
-  );
+  const [isOnline, setIsOnline] = useState<boolean>(true);
 
   useEffect(() => {
     window.addEventListener("online", () => setIsOnline(true));
