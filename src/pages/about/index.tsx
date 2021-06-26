@@ -45,7 +45,6 @@ const NotFoundPage = () => {
   } = {
     ...data.api.about,
   };
-  console.log(primary_image);
 
   return (
     <Layout className="about">

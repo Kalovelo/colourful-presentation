@@ -43,6 +43,11 @@ const Contact: React.FC<IContactProps> = ({ setSnackbar }) => {
 
   const onlineContext = useContext(OnlineContext);
 
+  const [disableButton, setdisableButton] = React.useState(false);
+  React.useEffect(() => {
+    setdisableButton(!onlineContext?.isOnline);
+  }, [onlineContext, onlineContext?.isOnline]);
+
   const encode = (data: FormikValues) => {
     return Object.keys(data)
       .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -128,7 +133,7 @@ const Contact: React.FC<IContactProps> = ({ setSnackbar }) => {
             <Field type="hidden" name="form-name" />
             <Field type="hidden" name="bot-field" />
             <Button
-              disabled={isSubmitting || !isValid || !onlineContext?.isOnline}
+              disabled={isSubmitting || !isValid || disableButton}
               ref={submitRef}
               text={onlineContext?.isOnline ? "ΑΠΟΣΤΟΛΗ" : "ΑΝΑΜΟΝΗ ΓΙΑ ΣΥΝΔΕΣΗ"}
             />

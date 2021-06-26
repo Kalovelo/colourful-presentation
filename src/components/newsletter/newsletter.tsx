@@ -8,6 +8,11 @@ const arrowIcon = <RightOutlined style={{ fontSize: 14 }} />;
 const Newsletter = () => {
   const onlineContext = useContext(OnlineContext);
 
+  const [disableButton, setdisableButton] = React.useState(false);
+  React.useEffect(() => {
+    setdisableButton(!onlineContext?.isOnline);
+  }, [onlineContext, onlineContext?.isOnline]);
+
   const getSubmissionText = () =>
     onlineContext?.isOnline ? "Εγγραφή" : " Αναμονή για σύνδεση";
 
@@ -41,7 +46,7 @@ const Newsletter = () => {
             name="subscribe"
             id="mc-embedded-subscribe"
             className="button"
-            disabled={!onlineContext?.isOnline}
+            disabled={disableButton}
           >
             {arrowIcon}
             {getSubmissionText()}
