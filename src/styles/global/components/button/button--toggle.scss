@@ -20,7 +20,7 @@
   padding: 0;
   font-size: inherit;
   &.learn-more {
-    width: 15rem;
+    width: 20rem;
     height: auto;
     .circle {
       @include transition(all, 0.45s, cubic-bezier(0.65, 0, 0.076, 1));

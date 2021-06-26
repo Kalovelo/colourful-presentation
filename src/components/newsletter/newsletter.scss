@@ -39,5 +39,8 @@
     width: fit-content;
     background: $color--dark;
     margin: 20px auto;
+    &:disabled {
+      background: $color--gray;
+    }
   }
 }

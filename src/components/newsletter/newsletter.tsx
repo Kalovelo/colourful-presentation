@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./newsletter.scss";
 import { RightOutlined } from "@ant-design/icons";
+import { OnlineContext } from "../context/NetworkContext";
 
 const arrowIcon = <RightOutlined style={{ fontSize: 14 }} />;
 
 const Newsletter = () => {
+  const onlineContext = useContext(OnlineContext);
+
+  const getSubmissionText = () =>
+    onlineContext?.isOnline ? "Εγγραφή" : " Αναμονή για σύνδεση";
+
   return (
     <div className="newsletter">
       <form
@@ -35,8 +41,10 @@ const Newsletter = () => {
             name="subscribe"
             id="mc-embedded-subscribe"
             className="button"
+            disabled={!onlineContext?.isOnline}
           >
-            {arrowIcon}Εγγραφή
+            {arrowIcon}
+            {getSubmissionText()}
           </button>
         </div>
       </form>

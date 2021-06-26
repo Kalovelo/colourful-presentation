@@ -6,22 +6,23 @@
  */
 
 import React from "react";
-import "./layout.scss";
-import Header from "../header/header";
-import Footer from "../footer/footer";
-import { ILayoutProps } from "./interface";
+import { OnlineContextProvider } from "../context/NetworkContext";
 import CookieNotice from "../cookie_notice/cookieNotice";
+import Footer from "../footer/footer";
+import Header from "../header/header";
+import { ILayoutProps } from "./interface";
+import "./layout.scss";
 
 const Layout: React.FC<ILayoutProps> = ({ children, className }) => {
   return (
-    <>
+    <OnlineContextProvider>
       <Header />
       <CookieNotice />
       <div className="layout slide-in-bottom">
         <main className={className}>{children}</main>
       </div>
       <Footer />
-    </>
+    </OnlineContextProvider>
   );
 };
 

@@ -12,6 +12,11 @@
     transform: translate(-3px, -3px);
     box-shadow: 10px 9px 29px -7px rgb(196, 196, 196);
     border-radius: 0;
+    &:disabled {
+      transform: none;
+      box-shadow: none !important;
+      border-radius: 0;
+    }
   }
 
   &:active,
