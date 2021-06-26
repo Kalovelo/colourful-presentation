@@ -78,6 +78,11 @@ module.exports = {
         icon: `src/images/favicon.png`,
       },
     },
-    "gatsby-plugin-offline",
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/contact/`, `/about/`],
+      },
+    },
   ],
 };
