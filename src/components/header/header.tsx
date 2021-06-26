@@ -1,11 +1,22 @@
+import WifiOffIcon from "@material-ui/icons/WifiOff";
 import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
+import React, { useContext } from "react";
+import { OnlineContext } from "../context/NetworkContext";
 import Background from "./background";
 import BarHeader from "./barHeader";
 import "./header.scss";
 import { IEvent, IGraphqlHeaderSchema } from "./interface";
 import ModalHeader from "./modalHeader";
 
+const NetworkStatus = () => {
+  const context = useContext(OnlineContext);
+
+  return (
+    <span className="header__networkStatus">
+      {!context?.isOnline && <WifiOffIcon />}
+    </span>
+  );
+};
 const Header: React.FC = () => {
   const data: IGraphqlHeaderSchema = useStaticQuery(graphql`
     query {
@@ -48,6 +59,7 @@ const Header: React.FC = () => {
       <div className="header__wrapper">
         <BarHeader data={endpoints} />
         <ModalHeader data={endpoints} />
+        <NetworkStatus />
       </div>
       <span className="header__background">
         <Background />

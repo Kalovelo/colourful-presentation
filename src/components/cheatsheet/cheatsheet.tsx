@@ -15,8 +15,8 @@ const Cheatsheet: React.FC<ICheatsheetProps> = ({
     <div className="cheatsheet">
       <h3 className="cheatsheet__title">Cheatsheet</h3>
 
-      {chapters.map((chapter) => (
-        <Accordion className="cheatsheet__accordion">
+      {chapters.map((chapter, index) => (
+        <Accordion key={index} className="cheatsheet__accordion">
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
@@ -26,8 +26,8 @@ const Cheatsheet: React.FC<ICheatsheetProps> = ({
           </AccordionSummary>
           <AccordionDetails>
             <div className="cheatsheet__field-wrapper">
-              {chapter.fields.map((field) => (
-                <span className="cheatsheet__field">
+              {chapter.fields.map((field, index) => (
+                <span key={index} className="cheatsheet__field">
                   <span
                     className={`cheatsheet__field-command cheatsheet__field-command--${theme}`}
                   >
@@ -41,12 +41,12 @@ const Cheatsheet: React.FC<ICheatsheetProps> = ({
         </Accordion>
       ))}
       <div className="cheatsheet__body">
-        {chapters.map((chapter) => (
-          <div className="cheatsheet__chapter">
+        {chapters.map((chapter, index) => (
+          <div key={index} className="cheatsheet__chapter">
             <h4 className="cheatsheet__chapter-title">{chapter.title}</h4>
             <div className="cheatsheet__field-wrapper">
-              {chapter.fields.map((field) => (
-                <span className="cheatsheet__field">
+              {chapter.fields.map((field, index) => (
+                <span key={index} className="cheatsheet__field">
                   <span
                     className={`cheatsheet__field-command cheatsheet__field-command--${theme}`}
                   >

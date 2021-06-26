@@ -57,7 +57,7 @@ export default ({ location }: { location: { pathname: string } }) => {
         onClose={() => setSnackbar(null)}
         message={snackBarMessage}
         action={
-          <React.Fragment>
+          <>
             <IconButton
               size="small"
               aria-label="close"
@@ -66,7 +66,7 @@ export default ({ location }: { location: { pathname: string } }) => {
             >
               <CloseIcon fontSize="small" />
             </IconButton>
-          </React.Fragment>
+          </>
         }
       />
     </>

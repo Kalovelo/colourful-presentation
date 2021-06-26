@@ -1,8 +1,10 @@
 import { Field, Form, Formik, FormikValues } from "formik";
-import { default as React, useRef } from "react";
+import { default as React, useContext, useRef } from "react";
 import Button from "../button/button";
+import { OnlineContext } from "../context/NetworkContext";
 import "./contact.scss";
 import { IContactProps, IFormFields } from "./interface";
+
 const Contact: React.FC<IContactProps> = ({ setSnackbar }) => {
   const formFields: Array<IFormFields> = [
     {
@@ -38,6 +40,13 @@ const Contact: React.FC<IContactProps> = ({ setSnackbar }) => {
   const fieldRefs = useRef<[HTMLDivElement] | [null]>([null]);
   const submitRef = useRef<HTMLButtonElement | null>(null);
   const labelRefs = useRef<[HTMLLabelElement] | [null]>([null]);
+
+  const onlineContext = useContext(OnlineContext);
+
+  const [disableButton, setdisableButton] = React.useState(false);
+  React.useEffect(() => {
+    setdisableButton(!onlineContext?.isOnline);
+  }, [onlineContext, onlineContext?.isOnline]);
 
   const encode = (data: FormikValues) => {
     return Object.keys(data)
@@ -124,9 +133,9 @@ const Contact: React.FC<IContactProps> = ({ setSnackbar }) => {
             <Field type="hidden" name="form-name" />
             <Field type="hidden" name="bot-field" />
             <Button
-              disabled={isSubmitting || !isValid}
+              disabled={isSubmitting || !isValid || disableButton}
               ref={submitRef}
-              text="Αποστολή"
+              text={onlineContext?.isOnline ? "ΑΠΟΣΤΟΛΗ" : "ΑΝΑΜΟΝΗ ΓΙΑ ΣΥΝΔΕΣΗ"}
             />
           </Form>
         )}

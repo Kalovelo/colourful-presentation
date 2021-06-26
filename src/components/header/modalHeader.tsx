@@ -2,11 +2,12 @@ import { Backdrop, Collapse, Fade, List, ListItem, Modal } from "@material-ui/co
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "gatsby";
-import React from "react";
+import React, { useContext } from "react";
 import "./header.scss";
 import { IMenuProps, ITopic, IType } from "./interface";
 import "./modalHeader.scss";
 import CloseIcon from "@material-ui/icons/Close";
+import { OnlineContext } from "../context/NetworkContext";
 
 const ModalMenu: React.FC<IMenuProps> = ({ main, subitems }: any) => {
   const [openCollapse, setOpenCollapse] = React.useState<boolean>(false);
