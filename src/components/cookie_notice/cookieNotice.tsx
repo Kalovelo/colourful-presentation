@@ -37,7 +37,8 @@ export default () => {
   return (
     <Snackbar
       anchorOrigin={{
-        vertical: "bottom",
+        vertical:
+          typeof window === "object" && window.innerWidth > 600 ? "bottom" : "top",
         horizontal: "left",
       }}
       open={open}
