@@ -47,7 +47,7 @@ const Archive: React.FC<IArchiveProps> = ({ events, theme, location }) => {
               Upcoming
             </h2>
             <h3 className="archive__filter-description">
-              Προλαβαίνεις να ενημερώσεις το πρόγραμμα σου!
+              Mark the date on your calendar and set your reminders!
             </h3>
           </div>
           <div className="archive__grid">
@@ -64,7 +64,7 @@ const Archive: React.FC<IArchiveProps> = ({ events, theme, location }) => {
               Past Events
             </h2>
             <h3 className="archive__filter-description">
-              Βρες βοηθητικό υλικό από προηγούμενα event, καθώς και φωτογραφίες.
+              Discover helpful material and photos from previous events.
             </h3>
           </div>
           <div className="archive__grid">

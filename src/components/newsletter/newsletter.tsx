@@ -14,7 +14,7 @@ const Newsletter = () => {
   }, [onlineContext, onlineContext?.isOnline]);
 
   const getSubmissionText = () =>
-    onlineContext?.isOnline ? "Εγγραφή" : " Αναμονή για σύνδεση";
+    onlineContext?.isOnline ? "Sign up" : " Loading...";
 
   return (
     <div className="newsletter">
@@ -29,7 +29,7 @@ const Newsletter = () => {
         <div className="newsletter__text">
           <h4 className="newsletter__title">Newsletter</h4>
           <p className="newsletter__description">
-            Μπες στη λίστα και ενημερώσου άμεσα για το επόμενο event!
+            Join the mailing list and receive updates for upcoming events!
           </p>
           <input
             placeholder="example@domain.com"

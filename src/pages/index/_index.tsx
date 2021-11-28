@@ -19,7 +19,7 @@ const banner1Props = {
   icon: <img src={workshopImage} />,
   title: "Workshops",
   text:
-    "Παρουσίαση μιας νέας τεχνολογίας. Βλέπουμε επίσης ποιος έχει τα καλύτερα αυτοκόλλητα στο λαπτοπ.",
+    "Hands-on training on tools and technologies. We, also, check out who's got the best laptop stickers.",
 };
 
 const banner2Props = {
@@ -27,7 +27,7 @@ const banner2Props = {
   icon: <img src={talkImage} />,
   title: "Talks",
   text:
-    "Συζητάμε για εργαλεία, τεχνολογίες και δρώμενα. Επίσης ανταλλάζουμε αυτοκόλλητα.",
+    "Learn technologies and best practices. Exchange ideas, and stickers.",
 };
 
 interface IIndexHeroProps {

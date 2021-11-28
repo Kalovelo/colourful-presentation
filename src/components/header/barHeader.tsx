@@ -84,7 +84,7 @@ const BarHeader: React.FC<any> = ({ data }: any) => {
     <div className="barHeader">
       <nav>
         <Link to="/" className="barHeader__main-link">
-          Αρχική
+          Home
         </Link>
         {Object.keys(data).map((type: string, index: number) => {
           return (

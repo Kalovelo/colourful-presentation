@@ -11,20 +11,20 @@ const Contact: React.FC<IContactProps> = ({ setSnackbar }) => {
       as: "input",
       name: "name",
       type: "name",
-      label: "Όνομα",
-      placeholder: "Το όνομα σου",
-      validation: (value: string): string => (!value ? "Απαιτούμενο" : ""),
+      label: "Name",
+      placeholder: "Your name",
+      validation: (value: string): string => (!value ? "Required" : ""),
     },
     {
       as: "input",
       name: "email",
       type: "email",
-      label: "Διεύθυνση mail",
+      label: "Your email address",
       placeholder: "sample@mail.com",
       validation: (value: string): string => {
         if (value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value))
           return "Invalid Email Address";
-        else if (!value) return "Απαιτούμενο";
+        else if (!value) return "Required";
         else return "";
       },
     },
@@ -32,9 +32,9 @@ const Contact: React.FC<IContactProps> = ({ setSnackbar }) => {
       as: "textarea",
       name: "message",
       type: "text",
-      label: "Μήνημα",
-      placeholder: "Το μήνυμα σου",
-      validation: (value: string): string => (!value ? "Απαιτούμενο" : ""),
+      label: "Message",
+      placeholder: "Your message",
+      validation: (value: string): string => (!value ? "Required" : ""),
     },
   ];
   const fieldRefs = useRef<[HTMLDivElement] | [null]>([null]);
@@ -135,7 +135,7 @@ const Contact: React.FC<IContactProps> = ({ setSnackbar }) => {
             <Button
               disabled={isSubmitting || !isValid || disableButton}
               ref={submitRef}
-              text={onlineContext?.isOnline ? "ΑΠΟΣΤΟΛΗ" : "ΑΝΑΜΟΝΗ ΓΙΑ ΣΥΝΔΕΣΗ"}
+              text={onlineContext?.isOnline ? "SEND" : "Loading..."}
             />
           </Form>
         )}

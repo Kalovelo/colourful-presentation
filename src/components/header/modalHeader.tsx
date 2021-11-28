@@ -78,7 +78,7 @@ const ModalHeader: React.FC<any> = ({ data }: any) => {
               <CloseIcon />
             </button>
             <ListItem className="modalHeader__list-item">
-              <Link to="/">Αρχική</Link>
+              <Link to="/">Home</Link>
             </ListItem>
             {Object.keys(data).map((type: string, index: number) => {
               return (
