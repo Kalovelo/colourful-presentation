@@ -13,15 +13,11 @@ import "./footer.scss";
 const Footer: React.FC = () => {
   const Links: Array<ILinks> = [
     {
-      title: "Επικοινωνία",
+      title: "Contact",
       url: "/contact/",
     },
     {
-      title: "Όροι χρήσης",
-      url: "/terms-of-use/",
-    },
-    {
-      title: "Σχετικά",
+      title: "About me",
       url: "/about/",
     },
   ];

@@ -33,7 +33,7 @@ const Gallery: React.FC<IGalleryProps> = ({ images }: IGalleryProps) => {
 
   return (
     <section className="gallery">
-      <h2 className="gallery__title">Στιγμές</h2>
+      <h2 className="gallery__title">Moments</h2>
       <div className="gallery__wrapper">
         {images.map((image: IImage, index: number) => (
           <span key={index}>

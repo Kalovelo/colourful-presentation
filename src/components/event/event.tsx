@@ -17,11 +17,11 @@ const eventDetails = (
   facebookEvent: string
 ) => {
   const data = [];
-  if (date) data.push({ headTitle: "Πότε;", content: formatDateWithHour(date) });
-  if (place) data.push({ headTitle: "Που;", content: place });
+  if (date) data.push({ headTitle: "When;", content: formatDateWithHour(date) });
+  if (place) data.push({ headTitle: "Where;", content: place });
   if (facebookEvent)
     data.push({
-      headTitle: "Συμμετοχή",
+      headTitle: "Participate",
       content: (
         <a
           className="event__details-table-link"
@@ -88,7 +88,7 @@ const Event = (props: any) => {
         )}
         {props.linkBundles.length > 0 && (
           <section>
-            <h2>Εξωτερικό βοηθητικό υλικό</h2>
+            <h2>Useful links</h2>
             <div className="event__linkList-wrapper">
               {props.linkBundles.map(
                 (linkList: { title: string; link: link[] }, index: number) => (
